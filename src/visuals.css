@@ -1,0 +1,108 @@
+#character-visuals {
+    container-type: inline-size;
+    width: 100%;
+    min-width: 0;
+    gap: var(--gap);
+}
+
+#character-images {
+    gap: var(--gap);
+}
+
+#portrait-palette-container {
+    position: relative;
+    min-width: 0;
+    margin-bottom: 5cqw;
+}
+
+.image-container {
+    border-radius: calc(var(--corners) * 1.6);
+    border: var(--border-style);
+    overflow: hidden;
+    padding: calc(var(--gap) / 2);
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--corners);
+}
+
+#portrait-palette-container > .image-container {
+    aspect-ratio: 1/1;
+    position: relative;
+}
+
+#character-images > .image-container {
+    width: 100%;
+    aspect-ratio: 1.5/1;
+}
+
+#character-palette {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    transform: translateY(-50%);
+    justify-content: center;
+    align-items: center;
+}
+
+.character-palette-circle {
+    flex: 0 1 10cqw;
+    min-width: 0;
+    min-height: 0;
+    width: auto;
+    max-width: 10cqw;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    align-self: center;
+    border-radius: 50%;
+    border: var(--border-style);
+    background: #fff;
+}
+
+#character-palette .character-palette-circle:not(:nth-child(2)) {
+    margin-left: -2%;
+}
+
+.palette-button {
+    position: relative;
+    flex: 0 1 8cqw;
+    min-width: 0;
+    min-height: 0;
+    width: auto;
+    max-width: 8cqw;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    align-self: center;
+    border-radius: var(--corners);
+    border: var(--border-style);
+    background: #fff;
+    margin: 0 2cqw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plus-cross {
+    position: absolute;
+    width: 1cqw;
+    height: 3cqw;
+    max-width: 5px;
+    background: #000;
+    border-radius: var(--corners);
+}
+
+.minus-cross {
+    position: absolute;
+    width: 3cqw;
+    height: 1cqw;
+    max-height: 5px;
+    background: #000;
+    border-radius: var(--corners);
+}
