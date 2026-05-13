@@ -1,0 +1,15 @@
+#top {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) * 2);
+}
+
+@media (min-width: 768px) {
+    #character-visuals {
+        flex: 0 0 350px;
+    }
+
+    #top {
+        flex-direction: row;
+    }
+}
