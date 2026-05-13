@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DnD Sheet</title>
+        <link rel="stylesheet" href="src/global.css" />
+        <link rel="stylesheet" href="src/sections.css" />
+        <link rel="stylesheet" href="src/visuals.css" />
+        <link rel="stylesheet" href="src/fonts/index.css" />
+        <script src="src/visuals.js"></script>
+    </head>
+    <body>
+        <div id="top" class="section">
+            <div id="character-visuals" class="character-visuals column">
+                <div id="portrait-palette-container">
+                    <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()">
+                        <img src="src/img/placeholder.svg" alt="Character Portrait" />
+                        <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
+                    </div>
+                    <div id="character-palette" class="character-palette row">
+                        <button id="remove-color-button" class="clickable palette-button" onclick="removeColor()"><div class="minus-cross"></div></button>
+                        <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
+                            <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
+                        </div>
+                        <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
+                            <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
+                        </div>
+                        <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
+                            <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
+                        </div>
+                        <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
+                            <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
+                        </div>
+                        <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
+                            <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
+                        </div>
+                        <button id="add-color-button" class="clickable palette-button" onclick="addColor()">
+                            <div class="plus-cross"></div>
+                            <div class="minus-cross"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="character-images" class="character-images row">
+                    <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()">
+                        <img src="src/img/placeholder.svg" alt="Character Image 1" />
+                        <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
+                    </div>
+                    <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()">
+                        <img src="src/img/placeholder.svg" alt="Character Image 2" />
+                        <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
+                    </div>
+                </div>
+            </div>
+            <div id="info-body" class="column">
+                <div id="character-info">
+                    <div id="character-name-container" class="text-input-row">
+                        <label for="character-name" class="text-input-label">Name</label>
+                        <input class="text-input" id="character-name" name="character-name" type="text" />
+                    </div>
+                    <div id="character-nickname-container" class="text-input-row">
+                        <label for="character-nickname" class="text-input-label">Nickname</label>
+                        <input class="text-input" id="character-nickname" name="character-nickname" type="text" />
+                    </div>
+                    <div id="character-race-container" class="text-input-row">
+                        <label for="character-race" class="text-input-label">Race/Species</label>
+                        <input class="text-input" id="character-race" name="character-race" type="text" />
+                    </div>
+                    <div id="character-age-container" class="text-input-row">
+                        <label for="character-age" class="text-input-label">Age</label>
+                        <input class="text-input" id="character-age" name="character-age" type="text" />
+                    </div>
+                    <div id="character-gender-container" class="text-input-row">
+                        <label for="character-gender" class="text-input-label">Gender</label>
+                        <input class="text-input" id="character-gender" name="character-gender" type="text" />
+                    </div>
+                    <div id="character-alignment-container" class="text-input-row">
+                        <label for="character-alignment" class="text-input-label">Alignment</label>
+                        <input class="text-input" id="character-alignment" name="character-alignment" type="text" />
+                    </div>
+                    <div id="character-class-container" class="text-input-row">
+                        <label for="character-class" class="text-input-label">Class/Job</label>
+                        <input class="text-input" id="character-class" name="character-class" type="text" />
+                    </div>
+                </div>
+                <div id="character-body"></div>
+            </div>
+        </div>
+    </body>
+</html>
