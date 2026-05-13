@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+
+    --corners: 10px;
+    --border-width: 4px;
+    --border-color: #000;
+    --border-style: var(--border-width) solid var(--border-color);
+
+    --mobile-gap: 10px;
+    --desktop-gap: 15px;
+    --gap: var(--mobile-gap);
+}
+
+body {
+    font-family: "Patrick Hand", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.section {
+    width: 100%;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.hidden-input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+input[type="text"] {
+    font-family: "Caveat", sans-serif;
+    border: none;
+    border-bottom: var(--border-style);
+}
+
+@media (min-width: 480px) {
+    body {
+        max-width: 480px;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        max-width: 800px;
+    }
+
+    * {
+        --gap: var(--desktop-gap);
+    }
+}
