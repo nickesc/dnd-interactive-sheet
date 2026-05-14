@@ -99,9 +99,6 @@
     .input-row-right-column .input-row label {
         flex-basis: 13ch;
     }
-    .special-label {
-        letter-spacing: -2px;
-    }
 }
 
 @media (min-width: 768px) {
@@ -126,6 +123,12 @@
             label {
                 margin-top: 0;
             }
+        }
+    }
+
+    #character-priorities {
+        .input-row-right-column .input-row label {
+            flex-basis: 16ch;
         }
     }
 }

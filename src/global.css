@@ -90,6 +90,10 @@ a:active {
         margin: 3px 0;
     }
 
+    .special-label {
+        letter-spacing: -2px;
+    }
+
     input[type="text"] {
         max-width: 100%;
         flex: 1 1 0;
@@ -152,6 +156,10 @@ a:active {
 
     .input-row {
         font-size: 16pt;
+
+        .special-label {
+            letter-spacing: 0;
+        }
     }
 }
 
