@@ -35,9 +35,9 @@ function updatePaletteColor(event) {
 
 function addColor() {
     const paletteCircleElementTemplate = `
-        <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
-            <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
-        </div>
+        <label class="character-palette-circle clickable">
+            <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+        </label>
     `;
     const palette = document.getElementById("character-palette");
     const addButton = document.getElementById("add-color-button");

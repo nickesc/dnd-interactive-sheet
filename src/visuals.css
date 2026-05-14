@@ -53,6 +53,7 @@
 }
 
 .character-palette-circle {
+    position: relative;
     flex: 0 1 10cqw;
     min-width: 0;
     min-height: 0;
@@ -64,6 +65,18 @@
     border-radius: 50%;
     border: var(--border-style);
     background: var(--background-color);
+    overflow: hidden;
+}
+
+.character-palette-circle input[type="color"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
 }
 
 #character-palette .character-palette-circle:not(:nth-child(2)) {

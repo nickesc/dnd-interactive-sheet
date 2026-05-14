@@ -30,21 +30,21 @@
                             <button id="remove-color-button" class="clickable palette-button" onclick="removeColor()">
                                 <span class="minus-cross"></span>
                             </button>
-                            <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
-                                <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
-                            </div>
-                            <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
-                                <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
-                            </div>
-                            <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
-                                <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
-                            </div>
-                            <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
-                                <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
-                            </div>
-                            <div class="character-palette-circle clickable" onclick="this.querySelector('input[type=color]').click()">
-                                <input class="hidden-input" type="color" onchange="updatePaletteColor(event)" />
-                            </div>
+                            <label class="character-palette-circle clickable">
+                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                            </label>
+                            <label class="character-palette-circle clickable">
+                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                            </label>
+                            <label class="character-palette-circle clickable">
+                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                            </label>
+                            <label class="character-palette-circle clickable">
+                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                            </label>
+                            <label class="character-palette-circle clickable">
+                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                            </label>
                             <button id="add-color-button" class="clickable palette-button" onclick="addColor()">
                                 <span class="plus-cross"></span>
                                 <span class="minus-cross"></span>
