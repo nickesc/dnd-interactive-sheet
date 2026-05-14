@@ -40,12 +40,37 @@ body {
     opacity: 0;
 }
 
-input[type="text"] {
-    font-family: "Caveat", sans-serif;
-    border: none;
-    border-bottom: var(--border-style);
-    border-bottom-width: calc(var(--border-width) / 2);
-    min-width: 0;
+.input-row {
+    display: flex;
+    font-size: 18pt;
+    gap: calc(var(--gap) / 2);
+
+    label {
+        flex: 0 0 auto;
+    }
+
+    input[type="text"] {
+        max-width: 100%;
+        flex: 1 1 0;
+        min-width: 0;
+        font-family: "Caveat", sans-serif;
+        border: none;
+        border-bottom: var(--border-style);
+        border-bottom-width: calc(var(--border-width) / 2);
+    }
+
+    .radio-input-container {
+        flex: 1 1 0;
+        min-width: 0;
+        gap: 2px;
+
+        input[type="radio"] {
+            flex: 1 1 auto;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+        }
+    }
 }
 
 label {

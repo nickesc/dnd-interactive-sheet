@@ -2,10 +2,7 @@
     gap: var(--gap);
     width: 100%;
     min-width: 0;
-
-    .input-row {
-        display: flex;
-    }
+    align-self: flex-end;
 }
 
 #character-info {
@@ -18,7 +15,7 @@
         input[type="text"] {
             flex: 1 1 auto;
             font-size: 20pt;
-            text-align: center;
+            /*text-align: center;*/
         }
     }
 }
@@ -34,32 +31,8 @@
         }
     }
 
-    .input-row {
-        font-size: 18pt;
-        gap: calc(var(--gap) / 2);
-
-        label {
-            flex: 0 0 9ch;
-        }
-    }
-
-    .radio-input-container {
-        flex: 1 1 0;
-        min-width: 0;
-        gap: 2px;
-    }
-
-    input[type="text"] {
-        max-width: 100%;
-        flex: 1 1 0;
-        min-width: 0;
-    }
-
-    input[type="radio"] {
-        flex: 1 1 auto;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
+    .input-row label {
+        flex-basis: 9ch;
     }
 }
 
