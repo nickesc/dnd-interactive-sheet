@@ -61,6 +61,12 @@
     }
 }
 
+#character-skills {
+    .input-row label {
+        flex-basis: 17ch;
+    }
+}
+
 #character-mind {
     .input-row-left-column .input-row label {
         flex-basis: 12ch;
@@ -72,11 +78,17 @@
 
 #character-social {
     .input-row-left-column .input-row label {
-        flex-basis: 8ch;
+        flex-basis: 8.5ch;
     }
     .input-row-mid-column .input-row label,
     .input-row-right-column .input-row label {
         flex-basis: 10ch;
+    }
+}
+
+#character-beliefs {
+    .input-row label {
+        flex-basis: 12ch;
     }
 }
 
@@ -89,25 +101,6 @@
     }
     .special-label {
         letter-spacing: -2px;
-    }
-    .special-s {
-        letter-spacing: -3px;
-    }
-
-    .special-apostrophe {
-        letter-spacing: -6px;
-    }
-}
-
-#character-skills {
-    .input-row label {
-        flex-basis: 18ch;
-    }
-}
-
-#character-beliefs {
-    .input-row label {
-        flex-basis: 12ch;
     }
 }
 

@@ -11,13 +11,13 @@ main {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: calc(var(--gap) * 2);
-    margin-bottom: calc(var(--gap) * 2);
+    gap: calc(var(--gap) * 2.5);
+    margin-bottom: calc(var(--gap) * 2.5);
 }
 
 .container h2 {
     position: absolute;
-    top: -1.2ex;
+    top: -1.6ex;
     left: 0;
     right: 0;
     width: 100%;
@@ -63,5 +63,7 @@ main {
 
     .split-row {
         flex-direction: row;
+        gap: calc(var(--gap) * 2);
+        margin-bottom: calc(var(--gap) * 2);
     }
 }
