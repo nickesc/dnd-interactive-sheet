@@ -1,13 +1,12 @@
 footer {
-    justify-content: space-between;
-    align-items: center;
     font-size: 16pt;
     text-transform: uppercase;
+    align-items: flex-start;
+    gap: calc(var(--gap) * 2);
 
     .input-row {
-        font-size: 16pt;
         width: 100%;
-        max-width: 400px;
+        font-size: 16pt;
         align-items: center;
         input[type="text"] {
             font-size: 20pt;
@@ -16,22 +15,18 @@ footer {
 
     span {
         font-size: 14pt;
-        text-align: right;
+        align-self: center;
     }
 }
 
-@media (max-width: 768px) {
-    footer.row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: calc(var(--gap) * 2);
+@media (min-width: 768px) {
+    footer.column {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
 
         .input-row {
-            width: 100%;
-        }
-
-        span {
-            align-self: center;
+            max-width: 400px;
         }
     }
 }
