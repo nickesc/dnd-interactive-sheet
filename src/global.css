@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
+}
 
+:root {
     --background-color: #fff;
     --line-color: #000;
 
@@ -23,6 +25,7 @@
 
 html {
     background-color: var(--background-color);
+    color: var(--line-color);
 }
 
 body {
@@ -94,6 +97,7 @@ a:active {
         border-bottom: var(--border-style);
         border-bottom-width: calc(var(--border-width) / 2);
         background-color: transparent;
+        color: var(--fill-color);
     }
 
     .radio-input-container {
