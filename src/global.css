@@ -60,7 +60,7 @@ label {
 
 @media (min-width: 768px) {
     body {
-        max-width: 800px;
+        max-width: 900px;
     }
 
     * {
