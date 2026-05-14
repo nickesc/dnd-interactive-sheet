@@ -195,6 +195,22 @@ a:active {
         border-radius: 10px;
     }
 
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border: var(--border-style);
+        border-width: 2px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.1s ease-in-out;
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: var(--fill-color);
+    }
+
     .left-label {
         text-align: right;
     }
@@ -229,6 +245,10 @@ a:active {
 
 @media (pointer: fine) {
     .input-row .radio-input-container input[type="radio"]:hover {
+        background-color: var(--fill-color-hover);
+    }
+
+    .input-row input[type="checkbox"]:hover {
         background-color: var(--fill-color-hover);
     }
 }

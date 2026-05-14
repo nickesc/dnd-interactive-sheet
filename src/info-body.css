@@ -177,11 +177,11 @@
         }
 
         .range-checkbox-left-column {
-            flex: 1 1 70%;
+            flex: 1 1 65%;
             min-width: 0;
         }
         .range-checkbox-right-column {
-            flex: 1 1 30%;
+            flex: 1 1 35%;
             min-width: 0;
         }
     }
