@@ -81,6 +81,7 @@ a:active {
         min-width: 0;
         font-family: "Caveat", sans-serif;
         border: none;
+        border-radius: 0;
         border-bottom: var(--border-style);
         border-bottom-width: calc(var(--border-width) / 2);
     }
@@ -112,9 +113,6 @@ a:active {
         input[type="radio"]:checked {
             background-image: radial-gradient(circle at center, var(--fill-color) 45%, transparent 46%);
         }
-        input[type="radio"]:hover {
-            background-image: radial-gradient(circle at center, var(--fill-color-hover) 45%, transparent 46%);
-        }
     }
 }
 
@@ -131,5 +129,11 @@ a:active {
 
     * {
         --gap: var(--desktop-gap);
+    }
+}
+
+@media (pointer: fine) {
+    .input-row .radio-input-container input[type="radio"]:hover {
+        background-image: radial-gradient(circle at center, var(--fill-color-hover) 45%, transparent 46%);
     }
 }
