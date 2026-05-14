@@ -36,16 +36,32 @@
             min-width: 0;
         }
     }
+}
 
-    .input-row label {
+#character-body {
+    --radio-group-width: calc((17.5px * 5) + (2px * 4));
+
+    .radio-input-container {
+        flex: 0 1 var(--radio-group-width);
+    }
+
+    input[type="text"] {
+        flex: 0 1 var(--radio-group-width);
+        min-width: 0;
+    }
+
+    .input-row-left-column .input-row label {
         flex-basis: 9ch;
+    }
+    .input-row-right-column .input-row label {
+        flex-basis: 7ch;
     }
 }
 
 #character-skills,
 #character-beliefs {
     .input-row label {
-        flex-basis: 15ch;
+        flex-basis: 18ch;
     }
 }
 
