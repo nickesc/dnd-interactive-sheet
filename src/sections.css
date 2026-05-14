@@ -6,7 +6,7 @@ main {
     align-items: center;
 }
 
-#top {
+.split-row {
     width: 100%;
     min-width: 0;
     display: flex;
@@ -47,7 +47,7 @@ main {
         flex: 0 0 350px;
     }
 
-    #top {
+    .split-row {
         flex-direction: row;
     }
 }
