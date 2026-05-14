@@ -9,6 +9,8 @@
 }
 
 #character-info {
+    margin-bottom: calc(var(--gap) * 2);
+
     .input-row {
         font-size: 24pt;
         gap: calc(var(--gap) / 2);
