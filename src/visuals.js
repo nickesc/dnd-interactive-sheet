@@ -47,6 +47,18 @@ function addColor() {
 function removeColor() {
     const addButton = document.getElementById("add-color-button");
     const lastColor = addButton?.previousElementSibling;
+
+    const index = Array.from(lastColor.parentElement.children).indexOf(lastColor);
+
+    if (index === 1) {
+        document.documentElement.style.setProperty("--fill-color", "#000");
+    } else if (index === 2) {
+        document.documentElement.style.setProperty("--line-color", "#000");
+        document.documentElement.style.setProperty("--accent-color", "#a2a2a2");
+    } else if (index === 3) {
+        document.documentElement.style.setProperty("--background-color", "#fff");
+    }
+
     if (lastColor && lastColor.classList.contains("character-palette-circle")) {
         lastColor.remove();
     }
