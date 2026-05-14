@@ -39,3 +39,28 @@
     font-weight: 400;
     src: url("patrick-hand-v25-latin/patrick-hand-v25-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+/* lxgw-wenkai-mono-tc-300 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "LXGW WenKai Mono TC";
+    font-style: normal;
+    font-weight: 300;
+    src: url("lxgw-wenkai-mono-tc-v10-latin/lxgw-wenkai-mono-tc-v10-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lxgw-wenkai-mono-tc-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "LXGW WenKai Mono TC";
+    font-style: normal;
+    font-weight: 400;
+    src: url("lxgw-wenkai-mono-tc-v10-latin/lxgw-wenkai-mono-tc-v10-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lxgw-wenkai-mono-tc-700 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "LXGW WenKai Mono TC";
+    font-style: normal;
+    font-weight: 700;
+    src: url("lxgw-wenkai-mono-tc-v10-latin/lxgw-wenkai-mono-tc-v10-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
