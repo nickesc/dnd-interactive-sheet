@@ -141,6 +141,18 @@ a:active {
             background-color: var(--fill-color);
         }
     }
+
+    input[type="range"] {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .left-label {
+        text-align: right;
+    }
+    .right-label {
+        text-align: left;
+    }
 }
 
 @media (min-width: 480px) {

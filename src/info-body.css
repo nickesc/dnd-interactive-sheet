@@ -37,6 +37,11 @@
     }
 }
 
+.range-input-column {
+    width: 100%;
+    min-width: 0;
+}
+
 #character-body {
     --radio-group-width: calc((17.5px * 5) + (2px * 4));
 
@@ -69,6 +74,11 @@
     }
     .input-row-right-column .input-row label {
         flex-basis: 8ch;
+    }
+
+    .range-input label {
+        font-size: 14pt;
+        flex: 0 0 8ch;
     }
 }
 
@@ -129,6 +139,13 @@
             label {
                 margin-top: 0;
             }
+        }
+    }
+
+    #character-mind {
+        .range-input label {
+            font-size: 16pt;
+            flex: 0 0 11ch;
         }
     }
 
