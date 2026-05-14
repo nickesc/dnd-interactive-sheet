@@ -34,10 +34,13 @@
     > .column {
         min-width: 0;
     }
+}
 
-    &.checkbox-split {
-        justify-content: center;
-        align-items: center;
+.checkbox-split {
+    justify-content: space-around;
+
+    .checkbox-input label {
+        font-size: 15pt;
     }
 }
 
@@ -150,6 +153,10 @@
         .range-input label {
             font-size: 16pt;
             flex: 0 0 11ch;
+        }
+
+        .checkbox-input label {
+            font-size: 16pt;
         }
     }
 
