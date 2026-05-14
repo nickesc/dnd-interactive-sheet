@@ -58,10 +58,53 @@
     }
 }
 
-#character-skills,
-#character-beliefs {
+#character-mind {
+    .input-row-left-column .input-row label {
+        flex-basis: 12ch;
+    }
+    .input-row-right-column .input-row label {
+        flex-basis: 8ch;
+    }
+}
+
+#character-social {
+    .input-row-left-column .input-row label {
+        flex-basis: 8ch;
+    }
+    .input-row-mid-column .input-row label,
+    .input-row-right-column .input-row label {
+        flex-basis: 10ch;
+    }
+}
+
+#character-priorities {
+    .input-row-left-column .input-row label {
+        flex-basis: 7ch;
+    }
+    .input-row-right-column .input-row label {
+        flex-basis: 13ch;
+    }
+    .special-label {
+        letter-spacing: -2px;
+    }
+    .special-s {
+        letter-spacing: -3px;
+    }
+
+    .special-apostrophe {
+        letter-spacing: -6px;
+    }
+}
+
+#character-skills {
     .input-row label {
         flex-basis: 18ch;
+    }
+}
+
+#character-beliefs {
+    .input-row label {
+        flex-basis: 12ch;
     }
 }
 
