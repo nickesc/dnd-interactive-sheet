@@ -43,6 +43,12 @@ input[type="text"] {
     font-family: "Caveat", sans-serif;
     border: none;
     border-bottom: var(--border-style);
+    border-bottom-width: calc(var(--border-width) / 2);
+    min-width: 0;
+}
+
+label {
+    text-transform: uppercase;
 }
 
 @media (min-width: 480px) {
