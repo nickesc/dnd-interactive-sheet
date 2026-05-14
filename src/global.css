@@ -1,5 +1,9 @@
 * {
     box-sizing: border-box;
+    transition:
+        color 0.5s ease-in-out,
+        background-color 0.5s ease-in-out,
+        border-color 0.5s ease-in-out;
 }
 
 :root {
@@ -122,6 +126,7 @@ a:active {
             border: 0.15em solid currentColor;
             border-radius: 50%;
             cursor: pointer;
+            transition: background-color 0.1s ease-in-out;
         }
 
         input[type="radio"]:checked {
