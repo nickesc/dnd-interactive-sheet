@@ -119,6 +119,20 @@
     }
 
     #character-info {
+        .info-split-row {
+            flex-direction: row;
+            gap: var(--gap);
+
+            .left-info-column {
+                flex: 1 1 35%;
+                min-width: 0;
+            }
+            .right-info-column {
+                flex: 1 1 65%;
+                min-width: 0;
+            }
+        }
+
         .input-row {
             font-size: 20pt;
             label {
