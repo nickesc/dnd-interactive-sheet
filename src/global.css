@@ -108,6 +108,10 @@ a:active {
         color: var(--fill-color);
     }
 
+    input[type="text"]:focus {
+        outline: none;
+    }
+
     .radio-input-container {
         flex: 0 1 auto;
         min-width: 0;
