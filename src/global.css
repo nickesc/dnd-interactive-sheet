@@ -84,6 +84,7 @@ a:active {
         border-radius: 0;
         border-bottom: var(--border-style);
         border-bottom-width: calc(var(--border-width) / 2);
+        background-color: transparent;
     }
 
     .radio-input-container {
