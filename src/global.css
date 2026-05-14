@@ -64,7 +64,7 @@ a:active {
 
 .input-row {
     display: flex;
-    font-size: 18pt;
+    font-size: 16pt;
     gap: calc(var(--gap) / 2);
 
     label {
