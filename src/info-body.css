@@ -25,11 +25,11 @@
 #character-social,
 #character-priorities {
     > .row {
-        gap: calc(var(--gap) * 2);
+        gap: var(--gap);
+        justify-content: space-between;
         min-width: 0;
 
         > .column {
-            flex: 1 1 0;
             min-width: 0;
         }
     }

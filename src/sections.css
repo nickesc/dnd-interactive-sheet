@@ -45,7 +45,7 @@ main {
 
 @media (min-width: 768px) {
     .left-split {
-        flex: 0 0 350px;
+        flex: 0 0 300px;
     }
 
     .right-split {

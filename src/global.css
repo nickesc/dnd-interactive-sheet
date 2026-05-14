@@ -86,7 +86,7 @@ a:active {
     }
 
     .radio-input-container {
-        flex: 1 1 0;
+        flex: 0 1 auto;
         min-width: 0;
         gap: 2px;
         align-items: center;
@@ -126,7 +126,7 @@ a:active {
 
 @media (min-width: 768px) {
     body {
-        max-width: 900px;
+        max-width: 815px;
     }
 
     * {
