@@ -30,7 +30,7 @@ main {
     text-transform: uppercase;
 
     .heading-bg {
-        background: #fff;
+        background: var(--background-color);
         padding: 0 5px;
     }
 }

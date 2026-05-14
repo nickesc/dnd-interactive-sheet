@@ -63,7 +63,7 @@
     align-self: center;
     border-radius: 50%;
     border: var(--border-style);
-    background: #fff;
+    background: var(--background-color);
 }
 
 #character-palette .character-palette-circle:not(:nth-child(2)) {
@@ -82,7 +82,7 @@
     align-self: center;
     border-radius: var(--corners);
     border: var(--border-style);
-    background: #fff;
+    background: var(--background-color);
     margin: 0 2cqw;
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@
     width: 1cqw;
     height: 3cqw;
     max-width: 5px;
-    background: #000;
+    background: var(--line-color);
     border-radius: var(--corners);
 }
 
@@ -103,6 +103,6 @@
     width: 3cqw;
     height: 1cqw;
     max-height: 5px;
-    background: #000;
+    background: var(--line-color);
     border-radius: var(--corners);
 }

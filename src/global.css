@@ -1,22 +1,28 @@
 * {
     box-sizing: border-box;
 
+    --background-color: #fff;
+    --line-color: #000;
+
+    --accent-color: #a2a2a2;
+    --accent-color-hover: color-mix(in srgb, var(--accent-color) 80%, black);
+    --accent-color-visited: var(--accent-color);
+    --accent-color-active: color-mix(in srgb, var(--accent-color) 60%, black);
+
+    --fill-color: #000;
+    --fill-color-hover: color-mix(in srgb, var(--fill-color) 50%, transparent);
+
     --corners: 10px;
     --border-width: 4px;
-    --border-color: #000;
-    --border-style: var(--border-width) solid var(--border-color);
+    --border-style: var(--border-width) solid var(--line-color);
 
     --mobile-gap: 10px;
     --desktop-gap: 15px;
     --gap: var(--mobile-gap);
+}
 
-    --accent-color: #a2a2a2;
-    --accent-color-hover: #777777;
-    --accent-color-visited: var(--accent-color);
-    --accent-color-active: #666666;
-
-    --fill-color: #000;
-    --fill-color-hover: #898989;
+html {
+    background-color: var(--background-color);
 }
 
 body {
@@ -107,7 +113,7 @@ a:active {
             height: auto;
             aspect-ratio: 1;
             align-self: center;
-            background-color: #fff;
+            background-color: var(--background-color);
             color: currentColor;
             border: 0.15em solid currentColor;
             border-radius: 50%;
