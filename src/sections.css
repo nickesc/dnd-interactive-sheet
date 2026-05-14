@@ -7,9 +7,39 @@ main {
 }
 
 #top {
+    width: 100%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: calc(var(--gap) * 2);
+}
+
+.container h2 {
+    position: absolute;
+    top: -40%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24pt;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+
+    .heading-bg {
+        background: #fff;
+        padding: 0 5px;
+    }
+}
+
+.container {
+    border: var(--border-style);
+    border-radius: var(--corners);
+    padding: var(--gap);
+    padding-top: max(calc(var(--gap) * 1.2), 20px);
+    position: relative;
 }
 
 @media (min-width: 768px) {
