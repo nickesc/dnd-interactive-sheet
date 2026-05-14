@@ -1,8 +1,11 @@
+#character-visuals {
+    align-self: flex-end;
+}
+
 #info-body {
     gap: var(--gap);
     width: 100%;
     min-width: 0;
-    align-self: flex-end;
 }
 
 #character-info {
