@@ -31,8 +31,7 @@
 #character-mind,
 #character-social,
 #character-priorities {
-    > .row {
-        flex-direction: column;
+    > .column {
         justify-content: space-between;
         min-width: 0;
 
@@ -122,7 +121,7 @@
     #character-mind,
     #character-social,
     #character-priorities {
-        > .row {
+        > .column {
             flex-direction: row;
             gap: var(--gap);
         }
