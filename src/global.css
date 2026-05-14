@@ -69,10 +69,12 @@ a:active {
     display: flex;
     font-size: 16pt;
     gap: calc(var(--gap) / 2);
+    align-items: center;
 
     label {
         flex: 0 0 auto;
         text-transform: uppercase;
+        margin: 3px 0;
     }
 
     input[type="text"] {
@@ -80,6 +82,7 @@ a:active {
         flex: 1 1 0;
         min-width: 0;
         font-family: "Caveat", sans-serif;
+        font-size: 16pt;
         border: none;
         border-radius: 0;
         border-bottom: var(--border-style);

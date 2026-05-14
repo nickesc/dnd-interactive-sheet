@@ -8,6 +8,11 @@ footer {
         width: 100%;
         font-size: 16pt;
         align-items: center;
+
+        label {
+            margin-top: 9px;
+        }
+
         input[type="text"] {
             font-size: 20pt;
         }
