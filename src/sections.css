@@ -52,6 +52,10 @@ main {
         flex: 0 0 300px;
     }
 
+    #character-beliefs.left-split {
+        flex: 0 0 240px;
+    }
+
     .right-split {
         flex: 1 1 0;
         min-width: 0;
