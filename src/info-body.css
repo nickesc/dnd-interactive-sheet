@@ -20,7 +20,10 @@
     }
 }
 
-#character-body {
+#character-body,
+#character-mind,
+#character-social,
+#character-priorities {
     > .row {
         gap: calc(var(--gap) * 2);
         min-width: 0;
@@ -36,7 +39,8 @@
     }
 }
 
-#character-skills {
+#character-skills,
+#character-beliefs {
     .input-row label {
         flex-basis: 15ch;
     }
