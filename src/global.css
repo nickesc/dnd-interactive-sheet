@@ -125,7 +125,7 @@ a:active {
         }
 
         input[type="radio"]:checked {
-            background-image: radial-gradient(circle at center, var(--fill-color) 45%, transparent 46%);
+            background-color: var(--fill-color);
         }
     }
 }
@@ -152,6 +152,6 @@ a:active {
 
 @media (pointer: fine) {
     .input-row .radio-input-container input[type="radio"]:hover {
-        background-image: radial-gradient(circle at center, var(--fill-color-hover) 45%, transparent 46%);
+        background-color: var(--fill-color-hover);
     }
 }
