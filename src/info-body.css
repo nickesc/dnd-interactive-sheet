@@ -85,7 +85,7 @@
 
     .range-input label {
         font-size: 14pt;
-        flex: 0 0 8ch;
+        flex: 0 0 8.5ch;
     }
 }
 
@@ -96,6 +96,11 @@
     .input-row-mid-column .input-row label,
     .input-row-right-column .input-row label {
         flex-basis: 10ch;
+    }
+
+    .range-input label {
+        font-size: 14pt;
+        flex: 0 0 8ch;
     }
 }
 
@@ -149,14 +154,35 @@
         }
     }
 
-    #character-mind {
-        .range-input label {
-            font-size: 16pt;
-            flex: 0 0 11ch;
-        }
-
+    #character-mind,
+    #character-social {
+        .range-input label,
         .checkbox-input label {
             font-size: 16pt;
+        }
+    }
+
+    #character-mind {
+        .range-input label {
+            flex: 0 0 11ch;
+        }
+    }
+
+    #character-social {
+        .range-input .left-label {
+            flex: 0 0 8.5ch;
+        }
+        .range-input .right-label {
+            flex: 0 0 10.5ch;
+        }
+
+        .range-checkbox-left-column {
+            flex: 1 1 70%;
+            min-width: 0;
+        }
+        .range-checkbox-right-column {
+            flex: 1 1 30%;
+            min-width: 0;
         }
     }
 
