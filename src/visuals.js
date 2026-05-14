@@ -15,24 +15,19 @@ function updatePaletteColor(event) {
     const color = event.target.value;
     const container = event.target.closest(".character-palette-circle");
 
-    // determine the index of the palette circle
     const index = Array.from(container.parentElement.children).indexOf(container);
 
     if (index === 1) {
-        const bgColor = `color-mix(in srgb, ${color} 25%, white)`;
-        document.documentElement.style.setProperty("--background-color", bgColor);
+        document.documentElement.style.setProperty("--fill-color", color);
     } else if (index === 2) {
         const lineColor = `color-mix(in srgb, ${color} 75%, black)`;
         document.documentElement.style.setProperty("--line-color", lineColor);
         const accentColor = `color-mix(in srgb, ${color} 50%, black)`;
         document.documentElement.style.setProperty("--accent-color", accentColor);
     } else if (index === 3) {
-        const fillColor = `color-mix(in srgb, ${color} 75%, black)`;
-        document.documentElement.style.setProperty("--fill-color", fillColor);
+        const bgColor = `color-mix(in srgb, ${color} 25%, white)`;
+        document.documentElement.style.setProperty("--background-color", bgColor);
     }
-
-    // update the background color of the palette circle
-    if (container) container.style.backgroundColor = color;
 
     // update the background color of the palette circle
     if (container) container.style.backgroundColor = color;
