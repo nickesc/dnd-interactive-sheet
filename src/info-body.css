@@ -32,7 +32,7 @@
 #character-social,
 #character-priorities {
     > .row {
-        gap: var(--gap);
+        flex-direction: column;
         justify-content: space-between;
         min-width: 0;
 
@@ -116,6 +116,16 @@
     #info-body {
         flex: 1 1 0;
         width: auto;
+    }
+
+    #character-body,
+    #character-mind,
+    #character-social,
+    #character-priorities {
+        > .row {
+            flex-direction: row;
+            gap: var(--gap);
+        }
     }
 
     #character-info {
