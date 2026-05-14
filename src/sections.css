@@ -12,6 +12,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: calc(var(--gap) * 2);
+    margin-bottom: calc(var(--gap) * 2);
 }
 
 .container h2 {
