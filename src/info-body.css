@@ -1,0 +1,56 @@
+#info-body {
+    gap: var(--gap);
+    width: 100%;
+    min-width: 0;
+
+    .input-row {
+        display: flex;
+    }
+}
+
+#character-info {
+    .input-row {
+        font-size: 24pt;
+        gap: var(--gap);
+
+        input[type="text"] {
+            flex: 1 1 auto;
+            font-size: 20pt;
+            text-align: center;
+        }
+    }
+}
+
+#character-body {
+    > .row {
+        gap: var(--gap);
+        min-width: 0;
+
+        > .column {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+    }
+
+    .input-row {
+        font-size: 16pt;
+        gap: 0;
+    }
+    input[type="text"] {
+        flex: 1 1 auto;
+        width: 10%;
+    }
+
+    input[type="radio"] {
+        flex: 1 1 auto;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    #info-body {
+        flex: 1 1 0;
+        width: auto;
+    }
+}
