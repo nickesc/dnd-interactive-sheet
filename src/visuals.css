@@ -16,6 +16,7 @@
 }
 
 .image-container {
+    position: relative;
     border-radius: calc(var(--corners) * 1.6);
     border: var(--border-style);
     overflow: hidden;
@@ -28,6 +29,44 @@
     height: 100%;
     object-fit: cover;
     border-radius: var(--corners);
+    transition: opacity var(--transition-speed) ease-out;
+}
+
+.image-container .placeholder-text {
+    font-family: "LXGW WenKai Mono TC", monospace;
+    position: absolute;
+    inset: 0;
+    top: calc(var(--gap) / 2);
+    left: calc(var(--gap) / 2);
+    right: calc(var(--gap) / 2);
+    bottom: calc(var(--gap) / 2);
+    border-radius: var(--corners);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9cqw;
+    font-weight: bold;
+    color: #00000050;
+    background: #00000020;
+    text-transform: uppercase;
+    transition:
+        opacity var(--transition-speed) ease-out,
+        color var(--transition-speed) ease-out,
+        background-color var(--transition-speed) ease-out;
+    z-index: -1;
+}
+
+.image-container:active .placeholder-text {
+    color: #00000095;
+    background: #00000065;
+}
+
+.image-container:active img {
+    opacity: 0.5;
+}
+
+#character-images .placeholder-text {
+    font-size: 6cqw;
 }
 
 #portrait-palette-container > .image-container {
@@ -128,4 +167,23 @@
     max-height: 5px;
     background: var(--line-color);
     border-radius: var(--corners);
+}
+
+@media (min-width: 768px) {
+    .image-container .placeholder-text {
+        font-size: 10cqw;
+    }
+    #character-images .placeholder-text {
+        font-size: 5.5cqw;
+    }
+}
+
+@media (pointer: fine) {
+    .image-container:hover img {
+        opacity: 0.5;
+    }
+    .image-container:hover .placeholder-text {
+        color: #00000065;
+        background: #00000035;
+    }
 }
