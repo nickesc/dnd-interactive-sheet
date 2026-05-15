@@ -10,13 +10,17 @@
     --background-color: #fff;
     --line-color: #000;
 
-    --accent-color: #a2a2a2;
+    --accent-color: #dddddd;
+    --accent-color-dark: color-mix(in srgb, var(--accent-color) 80%, black);
     --accent-color-hover: color-mix(in srgb, var(--accent-color) 80%, black);
+    --accent-color-dark-hover: color-mix(in srgb, var(--accent-color-dark) 80%, black);
     --accent-color-visited: var(--accent-color);
+    --accent-color-dark-visited: color-mix(in srgb, var(--accent-color-dark) 80%, black);
     --accent-color-active: color-mix(in srgb, var(--accent-color) 60%, black);
+    --accent-color-dark-active: color-mix(in srgb, var(--accent-color-dark) 60%, black);
 
     --fill-color: #000;
-    --fill-color-hover: color-mix(in srgb, var(--fill-color) 50%, transparent);
+    --fill-color-hover: color-mix(in srgb, var(--fill-color) 70%, white);
 
     --corners: 10px;
 
