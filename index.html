@@ -23,7 +23,7 @@
                 <section id="character-visuals" class="left-split column">
                     <h2 hidden>Character Visual Information</h2>
                     <div id="portrait-palette-container">
-                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()">
+                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()" tabindex="0">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4=" alt="Character Portrait" />
                             <span class="placeholder-text">Upload<br />portrait</span>
                             <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
@@ -55,12 +55,12 @@
                     </div>
 
                     <div id="character-images" class="character-images row">
-                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()">
+                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()" tabindex="0">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4=" alt="Character Image 1" />
                             <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
                             <span class="placeholder-text">Upload<br />image</span>
                         </div>
-                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()">
+                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()" tabindex="0">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4=" alt="Character Image 2" />
                             <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
                             <span class="placeholder-text">Upload<br />image</span>
