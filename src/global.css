@@ -1,9 +1,9 @@
 * {
     box-sizing: border-box;
     transition:
-        color 0.5s ease-in-out,
-        background-color 0.5s ease-in-out,
-        border-color 0.5s ease-in-out;
+        color var(--transition-slow) ease-in-out,
+        background-color var(--transition-slow) ease-in-out,
+        border-color var(--transition-slow) ease-in-out;
 }
 
 :root {
@@ -33,6 +33,10 @@
     --mobile-gap: 10px;
     --desktop-gap: 15px;
     --gap: var(--mobile-gap);
+
+    --transition-fast: 0.1s;
+    --transition-speed: 0.25s;
+    --transition-slow: 0.5s;
 }
 
 html {
