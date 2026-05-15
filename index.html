@@ -13,6 +13,8 @@
         <script src="src/visuals.js"></script>
         <script defer src="src/inputs.js"></script>
         <script defer src="src/export.js"></script>
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     </head>
     <body>
         <header>
@@ -814,16 +816,23 @@
                     </div>
                 </section>
             </div>
+            <footer class="column">
+                <div class="text-input input-row">
+                    <label for="character-author-name" class="input-label">Character by</label>
+                    <input class="text-input" id="character-author-name" name="character-author-name" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                </div>
+                <span>Based on a <a href="img/template.png" target="_blank">template</a> by <a href="https://cparrisart.tumblr.com/" target="_blank">cparrisart</a></span>
+            </footer>
         </main>
-        <footer class="column">
-            <div class="text-input input-row">
-                <label for="character-author-name" class="input-label">Character by</label>
-                <input class="text-input" id="character-author-name" name="character-author-name" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
-            </div>
-            <span>Based on a <a href="img/template.png" target="_blank">template</a> by <a href="https://cparrisart.tumblr.com/" target="_blank">cparrisart</a></span>
-            <button id="export-character" class="button" onclick="exportCharacter()">Export</button>
-            <button type="button" id="import-character-button" class="button" onclick="document.getElementById('character-import-file').click()">Import</button>
-            <input type="file" id="character-import-file" class="hidden-input" accept="application/json,.json" hidden onchange="importCharacter(event)" />
-        </footer>
+
+        <menu>
+            <button type="button" id="save-to-image-button" class="button">Save&nbsp;to&nbsp;image</button>
+            <button id="export-character" class="button shrinkable" onclick="exportCharacter()">Export</button>
+
+            <button type="button" id="import-character-button" class="button shrinkable" onclick="document.getElementById('character-import-file').click()">
+                Import
+                <input type="file" id="character-import-file" class="hidden-input" accept="application/json,.json" hidden onchange="importCharacter(event)" />
+            </button>
+        </menu>
     </body>
 </html>
