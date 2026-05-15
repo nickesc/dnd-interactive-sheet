@@ -70,6 +70,11 @@ function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
         });
     }
 
+    clonedDocument.querySelectorAll("#remove-color-button, #add-color-button").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.pointerEvents = "none";
+    });
+
     clonedDocument.querySelectorAll('input[type="text"]').forEach(replaceTextInputForImage);
     clonedDocument.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(replaceChoiceInputForImage);
     clonedDocument.querySelectorAll('input[type="range"]').forEach(replaceRangeInputForImage);
