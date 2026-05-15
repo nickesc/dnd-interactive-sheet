@@ -13,8 +13,8 @@
         <script src="src/visuals.js"></script>
         <script defer src="src/inputs.js"></script>
         <script defer src="src/export.js"></script>
-
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        <script defer src="src/save.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js" integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body>
         <header>
@@ -826,7 +826,7 @@
         </main>
 
         <menu>
-            <button type="button" id="save-to-image-button" class="button">Save&nbsp;to&nbsp;image</button>
+            <button type="button" id="save-to-image-button" class="button" onclick="saveToImage()">Save&nbsp;to&nbsp;image</button>
             <button id="export-character" class="button shrinkable" onclick="exportCharacter()">Export</button>
 
             <button type="button" id="import-character-button" class="button shrinkable" onclick="document.getElementById('character-import-file').click()">
