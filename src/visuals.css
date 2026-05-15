@@ -22,16 +22,10 @@
     overflow: hidden;
     padding: calc(var(--gap));
 
-    img,
-    .placeholder-text {
-        position: absolute;
-        inset: calc(var(--gap));
-        left: calc(var(--gap));
-        right: calc(var(--gap));
-        bottom: calc(var(--gap));
-    }
-
     img {
+        position: absolute;
+        width: calc(100% - var(--gap) * 2);
+        height: calc(100% - var(--gap) * 2);
         display: block;
         object-fit: cover;
         border-radius: var(--corners);
@@ -39,6 +33,11 @@
     }
 
     .placeholder-text {
+        position: absolute;
+        inset: calc(var(--gap));
+        left: calc(var(--gap));
+        right: calc(var(--gap));
+        bottom: calc(var(--gap));
         font-family: "LXGW WenKai Mono TC", monospace;
         border-radius: var(--corners);
         display: flex;
@@ -176,7 +175,7 @@
         }
     }
 
-    .image-container #character-images .placeholder-text {
+    #character-images .placeholder-text {
         font-size: 5.5cqw;
     }
 }
