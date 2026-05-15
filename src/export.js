@@ -184,11 +184,9 @@ function getPalette() {
     });
 }
 
-/** Resolves a CSS color to the browser's canonical `background-color` string for comparison. */
-function canonicalBackgroundColor(cssColor) {
+function resolveBackgroundColor(cssColor) {
     const el = document.createElement("div");
-    el.style.cssText =
-        "position:absolute;left:-9999px;top:0;visibility:hidden;background-color:" + String(cssColor).replace(/;/g, "") + ";";
+    el.style.cssText = "position:absolute;left:-9999px;top:0;visibility:hidden;background-color:" + String(cssColor).replace(/;/g, "") + ";";
     document.body.appendChild(el);
     const rgb = getComputedStyle(el).backgroundColor;
     el.remove();
@@ -196,7 +194,7 @@ function canonicalBackgroundColor(cssColor) {
 }
 
 function paletteCircleBackgroundMatchesPicker(computedBackground, pickerValue) {
-    return canonicalBackgroundColor(computedBackground) === canonicalBackgroundColor(pickerValue);
+    return resolveBackgroundColor(computedBackground) === resolveBackgroundColor(pickerValue);
 }
 
 function getPortrait() {

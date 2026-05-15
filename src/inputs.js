@@ -2,7 +2,6 @@ function setRadioContainer(radioInputContainer, clickedIndex) {
     const radioInputs = [...radioInputContainer.querySelectorAll("input[type='radio']")];
     if (clickedIndex < 0 || clickedIndex >= radioInputs.length) return;
 
-    // Second click on the lone filled dot clears the row (like un-setting a 1-star rating).
     const onlyFirstSelected = radioInputs[0]?.checked && radioInputs.slice(1).every((r) => !r.checked);
     if (clickedIndex === 0 && onlyFirstSelected) {
         radioInputs.forEach((radioInput) => {
