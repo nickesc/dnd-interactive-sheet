@@ -20,14 +20,19 @@
     border-radius: calc(var(--corners) * 1.6);
     border: var(--border-style);
     overflow: hidden;
-    padding: calc(var(--gap) / 2);
+    padding: calc(var(--gap));
+
+    img,
+    .placeholder-text {
+        position: absolute;
+        inset: calc(var(--gap));
+        left: calc(var(--gap));
+        right: calc(var(--gap));
+        bottom: calc(var(--gap));
+    }
 
     img {
-        position: absolute;
-        inset: calc(var(--gap) / 2);
         display: block;
-        width: calc(100% - var(--gap));
-        height: calc(100% - var(--gap));
         object-fit: cover;
         border-radius: var(--corners);
         transition: opacity var(--transition-speed) ease-out;
@@ -35,12 +40,6 @@
 
     .placeholder-text {
         font-family: "LXGW WenKai Mono TC", monospace;
-        position: absolute;
-        inset: 0;
-        top: calc(var(--gap) / 2);
-        left: calc(var(--gap) / 2);
-        right: calc(var(--gap) / 2);
-        bottom: calc(var(--gap) / 2);
         border-radius: var(--corners);
         display: flex;
         justify-content: center;
@@ -59,18 +58,20 @@
     }
 }
 
-#character-images .placeholder-text {
-    font-size: 6cqw;
+#character-images {
+    .placeholder-text {
+        font-size: 6cqw;
+    }
+
+    > .image-container {
+        width: 100%;
+        aspect-ratio: 1.5/1;
+    }
 }
 
 #portrait-palette-container > .image-container {
     aspect-ratio: 1/1;
     position: relative;
-}
-
-#character-images > .image-container {
-    width: 100%;
-    aspect-ratio: 1.5/1;
 }
 
 #character-palette {
@@ -87,11 +88,10 @@
 
     .character-palette-circle {
         position: relative;
-        flex: 0 1 10cqw;
+        flex: 0 1 12cqw;
         min-width: 30px;
         min-height: 30px;
         width: auto;
-        max-width: 10cqw;
         aspect-ratio: 1 / 1;
         height: auto;
         align-self: center;
@@ -118,13 +118,12 @@
 
     .palette-button {
         position: relative;
-        flex: 0 1 8cqw;
+        flex: 0 1 10cqw;
         aspect-ratio: 1.1 / 1;
         height: auto;
         width: auto;
         min-width: 30px;
         min-height: 25px;
-        max-width: 8cqw;
         align-self: center;
         margin: 0 2cqw;
         display: flex;
@@ -152,10 +151,32 @@
 }
 
 @media (min-width: 768px) {
-    .image-container .placeholder-text {
-        font-size: 10cqw;
+    #character-palette {
+        .character-palette-circle {
+            flex: 0 1 14cqw;
+        }
+
+        .palette-button {
+            flex: 0 1 12cqw;
+        }
     }
-    #character-images .placeholder-text {
+
+    .image-container {
+        img,
+        .placeholder-text {
+            position: absolute;
+            inset: calc(var(--gap) / 2);
+            left: calc(var(--gap) / 2);
+            right: calc(var(--gap) / 2);
+            bottom: calc(var(--gap) / 2);
+        }
+
+        .placeholder-text {
+            font-size: 10cqw;
+        }
+    }
+
+    .image-container #character-images .placeholder-text {
         font-size: 5.5cqw;
     }
 }
