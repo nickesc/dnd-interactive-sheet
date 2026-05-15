@@ -22,7 +22,7 @@ function updatePaletteColor(event) {
     } else if (index === 2) {
         const lineColor = `color-mix(in srgb, ${color} 75%, black)`;
         document.documentElement.style.setProperty("--line-color", lineColor);
-        const accentColor = `color-mix(in srgb, ${color} 60%, white)`;
+        const accentColor = `color-mix(in srgb, ${color} 50%, white)`;
         document.documentElement.style.setProperty("--accent-color", accentColor);
     } else if (index === 3) {
         const bgColor = `color-mix(in srgb, ${color} 25%, white)`;
