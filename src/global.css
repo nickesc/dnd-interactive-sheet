@@ -19,8 +19,12 @@
     --fill-color-hover: color-mix(in srgb, var(--fill-color) 50%, transparent);
 
     --corners: 10px;
+
     --border-width: 4px;
     --border-style: var(--border-width) solid var(--line-color);
+
+    --input-border-width: 2px;
+    --input-border-style: var(--input-border-width) solid var(--line-color);
 
     --mobile-gap: 10px;
     --desktop-gap: 15px;
@@ -102,8 +106,7 @@ a:active {
         font-size: 16pt;
         border: none;
         border-radius: 0;
-        border-bottom: var(--border-style);
-        border-bottom-width: calc(var(--border-width) / 2);
+        border-bottom: var(--input-border-style);
         background-color: transparent;
         color: var(--fill-color);
     }
@@ -131,7 +134,7 @@ a:active {
             align-self: center;
             background-color: var(--background-color);
             color: currentColor;
-            border: 0.15em solid currentColor;
+            border: var(--input-border-style);
             border-radius: 50%;
             cursor: pointer;
             transition: background-color 0.1s ease-in-out;
@@ -151,10 +154,6 @@ a:active {
         background: transparent;
     }
 
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-    }
-
     input[type="range"]:focus {
         outline: none;
     }
@@ -165,6 +164,7 @@ a:active {
         width: 16px;
         border-radius: 3px;
         background: var(--fill-color);
+        border: var(--input-border-style);
         cursor: pointer;
         transform: rotate(45deg);
         margin-top: -6px;
@@ -175,6 +175,7 @@ a:active {
         width: 16px;
         border-radius: 3px;
         background: var(--fill-color);
+        border: var(--input-border-style);
         cursor: pointer;
         transform: rotate(45deg);
     }
@@ -200,8 +201,7 @@ a:active {
         appearance: none;
         width: 16px;
         height: 16px;
-        border: var(--border-style);
-        border-width: 2px;
+        border: var(--input-border-style);
         border-radius: 3px;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
