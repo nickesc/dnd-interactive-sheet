@@ -8,25 +8,6 @@
     min-width: 0;
 }
 
-#character-info {
-    margin-bottom: calc(var(--gap));
-
-    .input-row {
-        gap: calc(var(--gap) / 2);
-
-        label {
-            margin-bottom: 0;
-            margin-top: 9px;
-        }
-
-        input[type="text"] {
-            flex: 1 1 auto;
-            font-size: 20pt;
-            /*text-align: center;*/
-        }
-    }
-}
-
 .input-row-split {
     justify-content: space-between;
     min-width: 0;
@@ -47,6 +28,25 @@
 .range-input-column {
     width: 100%;
     min-width: 0;
+}
+
+#character-info {
+    margin-bottom: calc(var(--gap));
+
+    .input-row {
+        gap: calc(var(--gap) / 2);
+
+        label {
+            margin-bottom: 0;
+            margin-top: 9px;
+        }
+
+        input[type="text"] {
+            flex: 1 1 auto;
+            font-size: 20pt;
+            /*text-align: center;*/
+        }
+    }
 }
 
 #character-body {
