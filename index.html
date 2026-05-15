@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="src/footer.css" />
         <script src="src/visuals.js"></script>
         <script defer src="src/inputs.js"></script>
+        <script defer src="src/export.js"></script>
     </head>
     <body>
         <header>
@@ -817,6 +818,9 @@
                 <input class="text-input" id="character-author-name" name="character-author-name" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
             </div>
             <span>Based on a <a href="img/template.png" target="_blank">template</a> by <a href="https://cparrisart.tumblr.com/" target="_blank">cparrisart</a></span>
+            <button id="export-character" class="button" onclick="exportCharacter()">Export</button>
+            <button type="button" id="import-character-button" class="button" onclick="document.getElementById('character-import-file').click()">Import</button>
+            <input type="file" id="character-import-file" class="hidden-input" accept="application/json,.json" hidden onchange="importCharacter(event)" />
         </footer>
     </body>
 </html>
