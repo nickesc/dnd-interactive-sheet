@@ -75,6 +75,10 @@ function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
         el.style.pointerEvents = "none";
     });
 
+    clonedDocument.querySelectorAll(".placeholder-text").forEach((el) => {
+        el.style.color = "transparent";
+    });
+
     clonedDocument.querySelectorAll('input[type="text"]').forEach(replaceTextInputForImage);
     clonedDocument.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(replaceChoiceInputForImage);
     clonedDocument.querySelectorAll('input[type="range"]').forEach(replaceRangeInputForImage);
