@@ -1,11 +1,3 @@
-* {
-    box-sizing: border-box;
-    transition:
-        color var(--transition-slow) ease-in-out,
-        background-color var(--transition-slow) ease-in-out,
-        border-color var(--transition-slow) ease-in-out;
-}
-
 :root {
     --background-color: #fff;
     --line-color: #000;
@@ -39,6 +31,14 @@
     --transition-slow: 0.5s;
 }
 
+* {
+    box-sizing: border-box;
+    transition:
+        color var(--transition-slow) ease-in-out,
+        background-color var(--transition-slow) ease-in-out,
+        border-color var(--transition-slow) ease-in-out;
+}
+
 html {
     background-color: var(--background-color);
     color: var(--line-color);
@@ -51,23 +51,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
-}
-
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--accent-color-hover);
-}
-
-a:visited {
-    color: var(--accent-color-visited);
-}
-
-a:active {
-    color: var(--accent-color-active);
 }
 
 .row {
@@ -229,6 +212,23 @@ a:active {
     }
 }
 
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--accent-color-hover);
+    }
+
+    &:visited {
+        color: var(--accent-color-visited);
+    }
+
+    &:active {
+        color: var(--accent-color-active);
+    }
+}
+
 button {
     font-family: "LXGW WenKai Mono TC", monospace;
     font-weight: bold;
@@ -260,12 +260,12 @@ button {
 }
 
 @media (min-width: 768px) {
-    body {
-        max-width: 815px;
+    :root {
+        --gap: var(--desktop-gap);
     }
 
-    * {
-        --gap: var(--desktop-gap);
+    body {
+        max-width: 815px;
     }
 
     .input-row {
@@ -278,19 +278,21 @@ button {
 }
 
 @media (pointer: fine) {
-    .input-row .radio-input-container input[type="radio"]:hover {
-        background-color: var(--fill-color-hover);
-    }
+    .input-row {
+        .radio-input-container input[type="radio"]:hover {
+            background-color: var(--fill-color-hover);
+        }
 
-    .input-row input[type="checkbox"]:hover {
-        background-color: var(--fill-color-hover);
-    }
+        input[type="checkbox"]:hover {
+            background-color: var(--fill-color-hover);
+        }
 
-    input[type="range"]::-webkit-slider-thumb:hover {
-        background-color: var(--fill-color-hover);
-    }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background-color: var(--fill-color-hover);
+        }
 
-    input[type="range"]::-moz-range-thumb:hover {
-        background-color: var(--fill-color-hover);
+        input[type="range"]::-moz-range-thumb:hover {
+            background-color: var(--fill-color-hover);
+        }
     }
 }
