@@ -161,9 +161,12 @@
     }
 
     .image-container {
-        img,
+        padding: calc(var(--gap) / 2);
+        img {
+            width: calc(100% - var(--gap));
+            height: calc(100% - var(--gap));
+        }
         .placeholder-text {
-            position: absolute;
             inset: calc(var(--gap) / 2);
             left: calc(var(--gap) / 2);
             right: calc(var(--gap) / 2);

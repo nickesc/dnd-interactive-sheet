@@ -39,12 +39,9 @@
         border-color var(--transition-slow) ease-in-out;
 }
 
-html {
+body {
     background-color: var(--background-color);
     color: var(--line-color);
-}
-
-body {
     font-family: "Patrick Hand", sans-serif;
     font-weight: bold;
     width: 100%;
