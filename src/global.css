@@ -26,7 +26,7 @@
     --desktop-gap: 15px;
     --gap: var(--mobile-gap);
 
-    --transition-fast: 0.1s;
+    --transition-fast: 0.15s;
     --transition-speed: 0.25s;
     --transition-slow: 0.5s;
 }
@@ -215,6 +215,7 @@ body {
 a {
     color: var(--accent-color);
     text-decoration: none;
+    transition: color var(--transition-fast) ease-in-out;
 
     &:hover {
         color: var(--accent-color-hover);
