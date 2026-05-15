@@ -59,15 +59,6 @@
     z-index: -1;
 }
 
-.image-container:active .placeholder-text {
-    color: #00000095;
-    background: #00000065;
-}
-
-.image-container:active img {
-    opacity: 0.5;
-}
-
 #character-images .placeholder-text {
     font-size: 6cqw;
 }
@@ -189,4 +180,23 @@
         color: #00000065;
         background: #00000035;
     }
+}
+
+@media (pointer: coarse) {
+    .image-container:focus .placeholder-text {
+        color: #00000065;
+        background: #00000035;
+    }
+    .image-container:focus img {
+        opacity: 0.5;
+    }
+}
+
+.image-container:active .placeholder-text {
+    color: #00000095;
+    background: #00000065;
+}
+
+.image-container:active img {
+    opacity: 0.5;
 }
