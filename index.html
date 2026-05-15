@@ -10,12 +10,15 @@
         <link rel="stylesheet" href="src/info-body.css" />
         <link rel="stylesheet" href="src/fonts/index.css" />
         <link rel="stylesheet" href="src/footer.css" />
-        <script src="src/visuals.js"></script>
+        <script defer src="src/visuals.js"></script>
         <script defer src="src/inputs.js"></script>
         <script defer src="src/export.js"></script>
         <script defer src="src/save.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js" integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"
+                integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
+
     <body>
         <header>
             <h1 hidden>DnD Personality Sheet</h1>
@@ -25,46 +28,66 @@
                 <section id="character-visuals" class="left-split column">
                     <h2 hidden>Character Visual Information</h2>
                     <div id="portrait-palette-container">
-                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()" tabindex="0">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4=" alt="Character Portrait" />
+                        <div class="image-container clickable"
+                             onclick="this.querySelector('input[type=file]').click()" tabindex="0">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4="
+                                 alt="Character Portrait" title="Character portrait" />
                             <span class="placeholder-text">Upload<br />portrait</span>
-                            <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
+                            <input class="hidden-input" type="file" accept="image/*"
+                                   onchange="updateImage(event)" hidden />
                         </div>
                         <div id="character-palette" class="character-palette row">
-                            <button id="remove-color-button" class="clickable palette-button" onclick="removeColor()">
+                            <button id="remove-color-button" class="clickable palette-button"
+                                    onclick="removeColor()">
                                 <span class="minus-cross"></span>
                             </button>
                             <label class="character-palette-circle clickable">
-                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                                <input class="hidden-input" type="color"
+                                       aria-label="Choose palette color"
+                                       onchange="updatePaletteColor(event)" />
                             </label>
                             <label class="character-palette-circle clickable">
-                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                                <input class="hidden-input" type="color"
+                                       aria-label="Choose palette color"
+                                       onchange="updatePaletteColor(event)" />
                             </label>
                             <label class="character-palette-circle clickable">
-                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                                <input class="hidden-input" type="color"
+                                       aria-label="Choose palette color"
+                                       onchange="updatePaletteColor(event)" />
                             </label>
                             <label class="character-palette-circle clickable">
-                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                                <input class="hidden-input" type="color"
+                                       aria-label="Choose palette color"
+                                       onchange="updatePaletteColor(event)" />
                             </label>
                             <label class="character-palette-circle clickable">
-                                <input class="hidden-input" type="color" aria-label="Choose palette color" onchange="updatePaletteColor(event)" />
+                                <input class="hidden-input" type="color"
+                                       aria-label="Choose palette color"
+                                       onchange="updatePaletteColor(event)" />
                             </label>
-                            <button id="add-color-button" class="clickable palette-button" onclick="addColor()">
+                            <button id="add-color-button" class="clickable palette-button"
+                                    onclick="addColor()">
                                 <span class="plus-cross"></span>
                                 <span class="minus-cross"></span>
                             </button>
                         </div>
                     </div>
-
                     <div id="character-images" class="character-images row">
-                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()" tabindex="0">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4=" alt="Character Image 1" />
-                            <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
+                        <div class="image-container clickable"
+                             onclick="this.querySelector('input[type=file]').click()" tabindex="0">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4="
+                                 alt="Character Image 1" title="Character image" />
+                            <input class="hidden-input" type="file" accept="image/*"
+                                   onchange="updateImage(event)" hidden />
                             <span class="placeholder-text">Upload<br />image</span>
                         </div>
-                        <div class="image-container clickable" onclick="this.querySelector('input[type=file]').click()" tabindex="0">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4=" alt="Character Image 2" />
-                            <input class="hidden-input" type="file" accept="image/*" onchange="updateImage(event)" hidden />
+                        <div class="image-container clickable"
+                             onclick="this.querySelector('input[type=file]').click()" tabindex="0">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4="
+                                 alt="Character Image 2" title="Character image" />
+                            <input class="hidden-input" type="file" accept="image/*"
+                                   onchange="updateImage(event)" hidden />
                             <span class="placeholder-text">Upload<br />image</span>
                         </div>
                     </div>
@@ -74,33 +97,47 @@
                         <h2 hidden>Character Information</h2>
                         <div class="text-input input-row">
                             <label for="character-name" class="input-label">Name:</label>
-                            <input class="text-input" id="character-name" name="character-name" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                            <input class="text-input" id="character-name" name="character-name"
+                                   type="text" autocomplete="off" data-lpignore="true"
+                                   data-form-type="other" />
                         </div>
                         <div class="text-input input-row">
                             <label for="character-nickname" class="input-label">Nickname:</label>
-                            <input class="text-input" id="character-nickname" name="character-nickname" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                            <input class="text-input" id="character-nickname"
+                                   name="character-nickname" type="text" autocomplete="off"
+                                   data-lpignore="true" data-form-type="other" />
                         </div>
                         <div class="text-input input-row">
                             <label for="character-race" class="input-label">Race/Species:</label>
-                            <input class="text-input" id="character-race" name="character-race" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                            <input class="text-input" id="character-race" name="character-race"
+                                   type="text" autocomplete="off" data-lpignore="true"
+                                   data-form-type="other" />
                         </div>
                         <div class="info-split-row column">
                             <div class="text-input input-row left-info-column">
                                 <label for="character-age" class="input-label">Age:</label>
-                                <input class="text-input" id="character-age" name="character-age" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                                <input class="text-input" id="character-age" name="character-age"
+                                       type="text" autocomplete="off" data-lpignore="true"
+                                       data-form-type="other" />
                             </div>
                             <div class="text-input input-row right-info-column">
                                 <label for="character-gender" class="input-label">Gender:</label>
-                                <input class="text-input" id="character-gender" name="character-gender" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                                <input class="text-input" id="character-gender"
+                                       name="character-gender" type="text" autocomplete="off"
+                                       data-lpignore="true" data-form-type="other" />
                             </div>
                         </div>
                         <div class="text-input input-row">
                             <label for="character-alignment" class="input-label">Alignment:</label>
-                            <input class="text-input" id="character-alignment" name="character-alignment" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                            <input class="text-input" id="character-alignment"
+                                   name="character-alignment" type="text" autocomplete="off"
+                                   data-lpignore="true" data-form-type="other" />
                         </div>
                         <div class="text-input input-row">
                             <label for="character-class" class="input-label">Class/Job:</label>
-                            <input class="text-input" id="character-class" name="character-class" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                            <input class="text-input" id="character-class" name="character-class"
+                                   type="text" autocomplete="off" data-lpignore="true"
+                                   data-form-type="other" />
                         </div>
                     </section>
                     <section id="character-body" class="right-split container">
@@ -108,7 +145,9 @@
                         <div class="input-row-split column">
                             <div class="column input-row-left-column">
                                 <div class="text-input input-row">
-                                    <input class="text-input" id="character-height" name="character-height" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                                    <input class="text-input" id="character-height"
+                                           name="character-height" type="text" autocomplete="off"
+                                           data-lpignore="true" data-form-type="other" />
                                     <label for="character-height" class="input-label">Height</label>
                                 </div>
                                 <div class="radio-input input-row">
@@ -412,83 +451,109 @@
                     </div>
                     <div class="column">
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="nice-range"><span class="special-label">Nice</span></label>
+                            <label class="input-label left-label" for="nice-range"><span
+                                      class="special-label">Nice</span></label>
                             <input type="range" id="nice-range" name="nice-range" />
-                            <label class="input-label right-label" for="nice-range"><span class="special-label">Mean</span></label>
+                            <label class="input-label right-label" for="nice-range"><span
+                                      class="special-label">Mean</span></label>
                         </div>
-
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="brave-range"><span class="special-label">Brave</span></label>
+                            <label class="input-label left-label" for="brave-range"><span
+                                      class="special-label">Brave</span></label>
                             <input type="range" id="brave-range" name="brave-range" />
-                            <label class="input-label right-label" for="brave-range"><span class="special-label">Cowardly</span></label>
+                            <label class="input-label right-label" for="brave-range"><span
+                                      class="special-label">Cowardly</span></label>
                         </div>
-
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="pacifist-range"><span class="special-label">Pacifist</span></label>
+                            <label class="input-label left-label" for="pacifist-range"><span
+                                      class="special-label">Pacifist</span></label>
                             <input type="range" id="pacifist-range" name="pacifist-range" />
-                            <label class="input-label right-label" for="pacifist-range"><span class="special-label">Violent</span></label>
+                            <label class="input-label right-label" for="pacifist-range"><span
+                                      class="special-label">Violent</span></label>
                         </div>
-
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="thoughtful-range"><span class="special-label">Thoughtful</span></label>
+                            <label class="input-label left-label" for="thoughtful-range"><span
+                                      class="special-label">Thoughtful</span></label>
                             <input type="range" id="thoughtful-range" name="thoughtful-range" />
-                            <label class="input-label right-label" for="thoughtful-range"><span class="special-label">Impulsive</span></label>
+                            <label class="input-label right-label" for="thoughtful-range"><span
+                                      class="special-label">Impulsive</span></label>
                         </div>
-
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="agreeable-range"><span class="special-label">Agreeable</span></label>
+                            <label class="input-label left-label" for="agreeable-range"><span
+                                      class="special-label">Agreeable</span></label>
                             <input type="range" id="agreeable-range" name="agreeable-range" />
-                            <label class="input-label right-label" for="agreeable-range"><span class="special-label">Contrary</span></label>
+                            <label class="input-label right-label" for="agreeable-range"><span
+                                      class="special-label">Contrary</span></label>
                         </div>
-
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="idealistic-range"><span class="special-label">Idealistic</span></label>
+                            <label class="input-label left-label" for="idealistic-range"><span
+                                      class="special-label">Idealistic</span></label>
                             <input type="range" id="idealistic-range" name="idealistic-range" />
-                            <label class="input-label right-label" for="idealistic-range"><span class="special-label">Pragmatic</span></label>
+                            <label class="input-label right-label" for="idealistic-range"><span
+                                      class="special-label">Pragmatic</span></label>
                         </div>
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="frugal-range"><span class="special-label">Frugal</span></label>
+                            <label class="input-label left-label" for="frugal-range"><span
+                                      class="special-label">Frugal</span></label>
                             <input type="range" id="frugal-range" name="frugal-range" />
-                            <label class="input-label right-label" for="frugal-range"><span class="special-label">Big spender</span></label>
+                            <label class="input-label right-label" for="frugal-range"><span
+                                      class="special-label">Big
+                                    spender</span></label>
                         </div>
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="extrovert-range"><span class="special-label">Extrovert</span></label>
+                            <label class="input-label left-label" for="extrovert-range"><span
+                                      class="special-label">Extrovert</span></label>
                             <input type="range" id="extrovert-range" name="extrovert-range" />
-                            <label class="input-label right-label" for="extrovert-range"><span class="special-label">Introvert</span></label>
+                            <label class="input-label right-label" for="extrovert-range"><span
+                                      class="special-label">Introvert</span></label>
                         </div>
                         <div class="range-input input-row">
-                            <label class="input-label left-label" for="collected-range"><span class="special-label">Collected</span></label>
+                            <label class="input-label left-label" for="collected-range"><span
+                                      class="special-label">Collected</span></label>
                             <input type="range" id="collected-range" name="collected-range" />
-                            <label class="input-label right-label" for="collected-range"><span class="special-label">Wild</span></label>
+                            <label class="input-label right-label" for="collected-range"><span
+                                      class="special-label">Wild</span></label>
                         </div>
                     </div>
                     <div class="input-row-split checkbox-split row">
                         <div class="column checkbox-row-left-column">
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="ambitious-checkbox" name="ambitious-checkbox" />
-                                <label class="input-label" for="ambitious-checkbox"><span class="special-label">Ambitious</span></label>
+                                <input type="checkbox" id="ambitious-checkbox"
+                                       name="ambitious-checkbox" />
+                                <label class="input-label" for="ambitious-checkbox"><span
+                                          class="special-label">Ambitious</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="stubborn-checkbox" name="stubborn-checkbox" />
-                                <label class="input-label" for="stubborn-checkbox"><span class="special-label">Stubborn</span></label>
+                                <input type="checkbox" id="stubborn-checkbox"
+                                       name="stubborn-checkbox" />
+                                <label class="input-label" for="stubborn-checkbox"><span
+                                          class="special-label">Stubborn</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="decisive-checkbox" name="decisive-checkbox" />
-                                <label class="input-label" for="decisive-checkbox"><span class="special-label">Decisive</span></label>
+                                <input type="checkbox" id="decisive-checkbox"
+                                       name="decisive-checkbox" />
+                                <label class="input-label" for="decisive-checkbox"><span
+                                          class="special-label">Decisive</span></label>
                             </div>
                         </div>
                         <div class="column checkbox-row-right-column">
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="possessive-checkbox" name="possessive-checkbox" />
-                                <label class="input-label" for="possessive-checkbox"><span class="special-label">Possessive</span></label>
+                                <input type="checkbox" id="possessive-checkbox"
+                                       name="possessive-checkbox" />
+                                <label class="input-label" for="possessive-checkbox"><span
+                                          class="special-label">Possessive</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="jealous-checkbox" name="jealous-checkbox" />
-                                <label class="input-label" for="jealous-checkbox"><span class="special-label">Jealous</span></label>
+                                <input type="checkbox" id="jealous-checkbox"
+                                       name="jealous-checkbox" />
+                                <label class="input-label" for="jealous-checkbox"><span
+                                          class="special-label">Jealous</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="perfectionist-checkbox" name="perfectionist-checkbox" />
-                                <label class="input-label" for="perfectionist-checkbox"><span class="special-label">Perfectionist</span></label>
+                                <input type="checkbox" id="perfectionist-checkbox"
+                                       name="perfectionist-checkbox" />
+                                <label class="input-label" for="perfectionist-checkbox"><span
+                                          class="special-label">Perfectionist</span></label>
                             </div>
                         </div>
                     </div>
@@ -568,64 +633,84 @@
                     <div class="input-row-split column">
                         <div class="column range-checkbox-left-column">
                             <div class="range-input input-row">
-                                <label class="input-label left-label" for="honest-range"><span class="special-label">Honest</span></label>
+                                <label class="input-label left-label" for="honest-range"><span
+                                          class="special-label">Honest</span></label>
                                 <input type="range" id="honest-range" name="honest-range" />
-                                <label class="input-label right-label" for="honest-range"><span class="special-label">Deceptive</span></label>
+                                <label class="input-label right-label" for="honest-range"><span
+                                          class="special-label">Deceptive</span></label>
                             </div>
-
                             <div class="range-input input-row">
-                                <label class="input-label left-label" for="leader-range"><span class="special-label">Leader</span></label>
+                                <label class="input-label left-label" for="leader-range"><span
+                                          class="special-label">Leader</span></label>
                                 <input type="range" id="leader-range" name="leader-range" />
-                                <label class="input-label right-label" for="leader-range"><span class="special-label">Follower</span></label>
+                                <label class="input-label right-label" for="leader-range"><span
+                                          class="special-label">Follower</span></label>
                             </div>
-
                             <div class="range-input input-row">
-                                <label class="input-label left-label" for="polite-range"><span class="special-label">Polite</span></label>
+                                <label class="input-label left-label" for="polite-range"><span
+                                          class="special-label">Polite</span></label>
                                 <input type="range" id="polite-range" name="polite-range" />
-                                <label class="input-label right-label" for="polite-range"><span class="special-label">Rude</span></label>
+                                <label class="input-label right-label" for="polite-range"><span
+                                          class="special-label">Rude</span></label>
                             </div>
-
                             <div class="range-input input-row">
-                                <label class="input-label left-label" for="political-range"><span class="special-label">Political</span></label>
+                                <label class="input-label left-label" for="political-range"><span
+                                          class="special-label">Political</span></label>
                                 <input type="range" id="political-range" name="political-range" />
-                                <label class="input-label right-label" for="political-range"><span class="special-label">Indifferent</span></label>
+                                <label class="input-label right-label" for="political-range"><span
+                                          class="special-label">Indifferent</span></label>
                             </div>
                         </div>
                         <div class="input-row-split checkbox-split range-checkbox-right-column row">
                             <div class="column checkbox-row-left-column">
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="cool-checkbox" name="cool-checkbox" />
-                                    <label class="input-label" for="cool-checkbox"><span class="special-label">Cool</span></label>
+                                    <input type="checkbox" id="cool-checkbox"
+                                           name="cool-checkbox" />
+                                    <label class="input-label" for="cool-checkbox"><span
+                                              class="special-label">Cool</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="cute-checkbox" name="cute-checkbox" />
-                                    <label class="input-label" for="cute-checkbox"><span class="special-label">Cute</span></label>
+                                    <input type="checkbox" id="cute-checkbox"
+                                           name="cute-checkbox" />
+                                    <label class="input-label" for="cute-checkbox"><span
+                                              class="special-label">Cute</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
                                     <input type="checkbox" id="fun-checkbox" name="fun-checkbox" />
-                                    <label class="input-label" for="fun-checkbox"><span class="special-label">Fun</span></label>
+                                    <label class="input-label" for="fun-checkbox"><span
+                                              class="special-label">Fun</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="gullible-checkbox" name="gullible-checkbox" />
-                                    <label class="input-label" for="gullible-checkbox"><span class="special-label">Gullible</span></label>
+                                    <input type="checkbox" id="gullible-checkbox"
+                                           name="gullible-checkbox" />
+                                    <label class="input-label" for="gullible-checkbox"><span
+                                              class="special-label">Gullible</span></label>
                                 </div>
                             </div>
                             <div class="column checkbox-row-right-column">
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="flirty-checkbox" name="flirty-checkbox" />
-                                    <label class="input-label" for="flirty-checkbox"><span class="special-label">Flirty</span></label>
+                                    <input type="checkbox" id="flirty-checkbox"
+                                           name="flirty-checkbox" />
+                                    <label class="input-label" for="flirty-checkbox"><span
+                                              class="special-label">Flirty</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="obedient-checkbox" name="obedient-checkbox" />
-                                    <label class="input-label" for="obedient-checkbox"><span class="special-label">Obedient</span></label>
+                                    <input type="checkbox" id="obedient-checkbox"
+                                           name="obedient-checkbox" />
+                                    <label class="input-label" for="obedient-checkbox"><span
+                                              class="special-label">Obedient</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="forgiving-checkbox" name="forgiving-checkbox" />
-                                    <label class="input-label" for="forgiving-checkbox"><span class="special-label">Forgiving</span></label>
+                                    <input type="checkbox" id="forgiving-checkbox"
+                                           name="forgiving-checkbox" />
+                                    <label class="input-label" for="forgiving-checkbox"><span
+                                              class="special-label">Forgiving</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="scary-checkbox" name="scary-checkbox" />
-                                    <label class="input-label" for="scary-checkbox"><span class="special-label">Scary</span></label>
+                                    <input type="checkbox" id="scary-checkbox"
+                                           name="scary-checkbox" />
+                                    <label class="input-label" for="scary-checkbox"><span
+                                              class="special-label">Scary</span></label>
                                 </div>
                             </div>
                         </div>
@@ -810,7 +895,10 @@
                                     <input type="radio" />
                                     <input type="radio" />
                                 </div>
-                                <label class="input-label special-label">Other<span class="special-s">s</span><span class="special-apostrophe">'</span> opinions</label>
+                                <label class="input-label special-label">Other<span
+                                          class="special-s">s</span><span
+                                          class="special-apostrophe">'</span>
+                                    opinions</label>
                             </div>
                         </div>
                     </div>
@@ -819,19 +907,26 @@
             <footer class="column">
                 <div class="text-input input-row">
                     <label for="character-author-name" class="input-label">Character by</label>
-                    <input class="text-input" id="character-author-name" name="character-author-name" type="text" autocomplete="off" data-lpignore="true" data-form-type="other" />
+                    <input class="text-input" id="character-author-name"
+                           name="character-author-name" type="text" autocomplete="off"
+                           data-lpignore="true" data-form-type="other" />
                 </div>
-                <span id="credits">Based on a <a href="img/template.png" target="_blank">template</a> by <a href="https://cparrisart.tumblr.com/" target="_blank">cparrisart</a></span>
+                <span id="credits">Based on a <a href="img/template.png"
+                       target="_blank">template</a> by
+                    <a href="https://cparrisart.tumblr.com/" target="_blank">cparrisart</a></span>
             </footer>
         </main>
-
         <menu>
-            <button type="button" id="save-to-image-button" class="button" onclick="saveToImage()">Save&nbsp;to&nbsp;image</button>
-            <button id="export-character" class="button shrinkable" onclick="exportCharacter()">Export</button>
-
-            <button type="button" id="import-character-button" class="button shrinkable" onclick="document.getElementById('character-import-file').click()">
+            <button type="button" id="save-to-image-button" class="button" onclick="saveToImage()">
+                Save&nbsp;to&nbsp;image
+            </button>
+            <button id="export-character" class="button shrinkable"
+                    onclick="exportCharacter()">Export</button>
+            <button type="button" id="import-character-button" class="button shrinkable"
+                    onclick="document.getElementById('character-import-file').click()">
                 Import
-                <input type="file" id="character-import-file" class="hidden-input" accept="application/json,.json" hidden onchange="importCharacter(event)" />
+                <input type="file" id="character-import-file" class="hidden-input"
+                       accept="application/json,.json" hidden onchange="importCharacter(event)" />
             </button>
         </menu>
     </body>

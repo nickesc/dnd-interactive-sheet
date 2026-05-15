@@ -104,7 +104,7 @@ function applyPalette(colors) {
         const colorInput = circle.querySelector("input[type='color']");
         if (!colorInput) return;
         colorInput.value = hex;
-        colorInput.dispatchEvent(new Event("change", { bubbles: true }));
+        colorInput.dispatchEvent(new Event("change", {bubbles: true}));
     });
 }
 
@@ -122,7 +122,7 @@ function exportCharacter() {
     const character = extractCharacterData();
     console.log(character);
     const json = JSON.stringify(character, null, 2);
-    const blob = new Blob([json], { type: "application/json;charset=utf-8" });
+    const blob = new Blob([json], {type: "application/json;charset=utf-8"});
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
@@ -186,7 +186,10 @@ function getPalette() {
 
 function resolveBackgroundColor(cssColor) {
     const el = document.createElement("div");
-    el.style.cssText = "position:absolute;left:-9999px;top:0;visibility:hidden;background-color:" + String(cssColor).replace(/;/g, "") + ";";
+    el.style.cssText =
+        "position:absolute;left:-9999px;top:0;visibility:hidden;background-color:" +
+        String(cssColor).replace(/;/g, "") +
+        ";";
     document.body.appendChild(el);
     const rgb = getComputedStyle(el).backgroundColor;
     el.remove();
