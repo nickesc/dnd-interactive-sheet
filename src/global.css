@@ -167,6 +167,7 @@ a:active {
         border: var(--input-border-style);
         cursor: pointer;
         transform: rotate(45deg);
+        transition: background-color 0.1s ease-in-out;
         margin-top: -6px;
     }
 
@@ -178,6 +179,7 @@ a:active {
         border: var(--input-border-style);
         cursor: pointer;
         transform: rotate(45deg);
+        transition: background-color 0.1s ease-in-out;
     }
 
     input[type="range"]::-webkit-slider-runnable-track {
@@ -249,6 +251,14 @@ a:active {
     }
 
     .input-row input[type="checkbox"]:hover {
+        background-color: var(--fill-color-hover);
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+        background-color: var(--fill-color-hover);
+    }
+
+    input[type="range"]::-moz-range-thumb:hover {
         background-color: var(--fill-color-hover);
     }
 }
