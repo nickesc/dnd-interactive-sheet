@@ -127,22 +127,10 @@
     min-height: 25px;
     max-width: 8cqw;
     align-self: center;
-    border-radius: var(--corners);
-    border: var(--border-style);
-    background: var(--accent-color);
     margin: 0 2cqw;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color var(--transition-speed) ease-in-out;
-}
-
-.palette-button:hover {
-    background: var(--accent-color-hover);
-}
-
-.palette-button:active {
-    background: var(--accent-color-active);
 }
 
 .plus-cross {

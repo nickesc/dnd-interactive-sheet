@@ -229,6 +229,30 @@ a:active {
     }
 }
 
+button {
+    font-family: "LXGW WenKai Mono TC", monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: var(--corners);
+    border: var(--border-style);
+    background: var(--accent-color);
+    color: var(--line-color);
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease-in-out;
+
+    &:hover {
+        background: var(--accent-color-hover);
+    }
+
+    &:focus {
+        background: var(--accent-color-hover);
+    }
+
+    &:active {
+        background: var(--accent-color-active);
+    }
+}
+
 @media (min-width: 480px) {
     body {
         max-width: 480px;
