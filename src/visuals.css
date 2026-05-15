@@ -50,13 +50,14 @@
     transform: translateY(-50%);
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .character-palette-circle {
     position: relative;
     flex: 0 1 10cqw;
-    min-width: 0;
-    min-height: 0;
+    min-width: 30px;
+    min-height: 30px;
     width: auto;
     max-width: 10cqw;
     aspect-ratio: 1 / 1;
@@ -80,26 +81,35 @@
 }
 
 #character-palette .character-palette-circle:not(:nth-child(2)) {
-    margin-left: -2%;
+    margin-left: min(-2%, -10px);
 }
 
 .palette-button {
     position: relative;
     flex: 0 1 8cqw;
-    min-width: 0;
-    min-height: 0;
-    width: auto;
-    max-width: 8cqw;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1.1 / 1;
     height: auto;
+    width: auto;
+    min-width: 30px;
+    min-height: 25px;
+    max-width: 8cqw;
     align-self: center;
     border-radius: var(--corners);
     border: var(--border-style);
-    background: var(--background-color);
+    background: var(--accent-color);
     margin: 0 2cqw;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.25s ease-in-out;
+}
+
+.palette-button:hover {
+    background: var(--accent-color-hover);
+}
+
+.palette-button:active {
+    background: var(--accent-color-active);
 }
 
 .plus-cross {
