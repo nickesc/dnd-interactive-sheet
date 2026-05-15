@@ -20,8 +20,107 @@ function importCharacter(event) {
     reader.readAsText(file);
 }
 
+function applyCharacterData(data) {
+    if (!data || typeof data !== "object") {
+        console.error("Import failed: invalid data");
+        return;
+    }
+
+    document.querySelectorAll('input[type="text"][id]').forEach((input) => {
+        if (Object.prototype.hasOwnProperty.call(data, input.id)) {
+            const v = data[input.id];
+            input.value = v == null ? "" : String(v);
+        }
+    });
+
+    document.querySelectorAll(".radio-input-container").forEach((container) => {
+        const row = container.closest(".radio-input.input-row");
+        const groupId = container.id || row?.id;
+        if (!groupId || !Object.prototype.hasOwnProperty.call(data, groupId)) return;
+        applyRadioCount(container, data[groupId]);
+    });
+
+    document.querySelectorAll('input[type="range"][id]').forEach((input) => {
+        if (Object.prototype.hasOwnProperty.call(data, input.id)) {
+            input.value = String(data[input.id]);
+        }
+    });
+
+    document.querySelectorAll('input[type="checkbox"][id]').forEach((input) => {
+        if (Object.prototype.hasOwnProperty.call(data, input.id)) {
+            input.checked = Boolean(data[input.id]);
+        }
+    });
+
+    if (Array.isArray(data.palette)) {
+        applyPalette(data.palette);
+    }
+
+    if (Array.isArray(data.images)) {
+        applyGalleryImages(data.images);
+    }
+
+    if (typeof data.portrait === "string") {
+        const portraitImg = document.querySelector("#portrait-palette-container .image-container img");
+        if (portraitImg) portraitImg.src = data.portrait;
+    }
+}
+
+function applyRadioCount(container, count) {
+    const radios = [...container.querySelectorAll("input[type='radio']")];
+    if (radios.length === 0) return;
+
+    const n = Math.max(0, Math.floor(Number(count)) || 0);
+    if (n === 0) {
+        radios.forEach((r) => {
+            r.checked = false;
+        });
+        return;
+    }
+
+    const clickedIndex = Math.min(n, radios.length) - 1;
+    radios.forEach((radio, index) => {
+        radio.checked = index <= clickedIndex;
+    });
+}
+
+function applyPalette(colors) {
+    const palette = document.getElementById("character-palette");
+    if (!palette) return;
+
+    let circles = palette.querySelectorAll(".character-palette-circle");
+    while (circles.length > colors.length) {
+        removeColor();
+        circles = palette.querySelectorAll(".character-palette-circle");
+    }
+    while (circles.length < colors.length) {
+        addColor();
+        circles = palette.querySelectorAll(".character-palette-circle");
+    }
+
+    circles.forEach((circle, i) => {
+        const hex = colors[i];
+        if (typeof hex !== "string" || hex.trim() === "") return;
+        const colorInput = circle.querySelector("input[type='color']");
+        if (!colorInput) return;
+        colorInput.value = hex;
+        colorInput.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+}
+
+function applyGalleryImages(sources) {
+    const root = document.getElementById("character-images");
+    if (!root) return;
+
+    const imgs = root.querySelectorAll(".image-container img");
+    imgs.forEach((img, i) => {
+        img.src = typeof sources[i] === "string" ? sources[i] : "img/placeholder.svg";
+    });
+}
+
 function exportCharacter() {
     const character = extractCharacterData();
+    console.log(character);
     const json = JSON.stringify(character, null, 2);
     const blob = new Blob([json], { type: "application/json;charset=utf-8" });
     const url = URL.createObjectURL(blob);
@@ -74,7 +173,30 @@ function extractCharacterData() {
 function getPalette() {
     const palette = document.getElementById("character-palette");
     if (!palette) return [];
-    return Array.from(palette.querySelectorAll(".character-palette-circle input[type='color']")).map((input) => input.value);
+    return Array.from(palette.querySelectorAll(".character-palette-circle")).map((circle) => {
+        const input = circle.querySelector("input[type='color']");
+        if (!input) return "";
+        const bgComputed = getComputedStyle(circle).backgroundColor;
+        if (paletteCircleBackgroundMatchesPicker(bgComputed, input.value)) {
+            return input.value;
+        }
+        return "";
+    });
+}
+
+/** Resolves a CSS color to the browser's canonical `background-color` string for comparison. */
+function canonicalBackgroundColor(cssColor) {
+    const el = document.createElement("div");
+    el.style.cssText =
+        "position:absolute;left:-9999px;top:0;visibility:hidden;background-color:" + String(cssColor).replace(/;/g, "") + ";";
+    document.body.appendChild(el);
+    const rgb = getComputedStyle(el).backgroundColor;
+    el.remove();
+    return rgb;
+}
+
+function paletteCircleBackgroundMatchesPicker(computedBackground, pickerValue) {
+    return canonicalBackgroundColor(computedBackground) === canonicalBackgroundColor(pickerValue);
 }
 
 function getPortrait() {
