@@ -13,8 +13,10 @@ function saveToImage() {
             .replace(/\s+/g, "-")
             .slice(0, 120) || "character";
 
+    const bgColor = colorToRgb(getComputedStyle(document.body).backgroundColor) || "#ffffff";
+
     html2canvas(container, {
-        backgroundColor: getComputedStyle(document.body).backgroundColor || "#ffffff",
+        backgroundColor: bgColor,
         onclone: (clonedDocument) => prepareCloneForImage(clonedDocument, contentWidth, exportWidth),
         useCORS: true,
         scale: exportScale,
@@ -52,6 +54,8 @@ function saveToImage() {
 }
 
 function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
+    resolveColorMixVariables(clonedDocument);
+
     const clonedMain = clonedDocument.querySelector("main");
     if (clonedMain) {
         clonedMain.style.width = `${exportWidth}px`;
@@ -66,9 +70,79 @@ function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
         });
     }
 
+    clonedDocument.querySelectorAll('input[type="text"]').forEach(replaceTextInputForImage);
     clonedDocument.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(replaceChoiceInputForImage);
     clonedDocument.querySelectorAll('input[type="range"]').forEach(replaceRangeInputForImage);
     clonedDocument.querySelectorAll(".image-container img").forEach(replaceImageForImage);
+}
+
+function resolveColorMixVariables(clonedDocument) {
+    const cssVars = [
+        "--background-color",
+        "--line-color",
+        "--accent-color",
+        "--accent-color-dark",
+        "--accent-color-hover",
+        "--accent-color-dark-hover",
+        "--accent-color-visited",
+        "--accent-color-dark-visited",
+        "--accent-color-active",
+        "--accent-color-dark-active",
+        "--fill-color",
+        "--fill-color-hover",
+    ];
+
+    const resolved = {};
+    cssVars.forEach((name) => {
+        resolved[name] = resolveColorVariable(name);
+    });
+
+    clonedDocument.querySelectorAll("[style]").forEach((el) => {
+        const raw = el.getAttribute("style") || "";
+        if (!/color-mix|color\(|oklab\(/.test(raw)) return;
+        const cleaned = raw
+            .split(";")
+            .filter((decl) => !/color-mix|color\(|oklab\(/.test(decl))
+            .join(";");
+        el.setAttribute("style", cleaned);
+    });
+
+    const root = clonedDocument.documentElement;
+    cssVars.forEach((name) => {
+        if (resolved[name]) {
+            root.style.setProperty(name, resolved[name]);
+        }
+    });
+
+    console.log("[save-debug] resolved CSS vars:", resolved);
+    console.log("[save-debug] final <html> style:", root.getAttribute("style"));
+}
+
+function resolveColorVariable(varName) {
+    const probe = document.createElement("div");
+    probe.style.cssText = "position:absolute;left:-9999px;top:0;visibility:hidden;";
+    probe.style.color = `var(${varName})`;
+    document.body.appendChild(probe);
+    const computed = getComputedStyle(probe).color;
+    probe.remove();
+    return colorToRgb(computed);
+}
+
+function colorToRgb(colorStr) {
+    if (!colorStr || colorStr === "transparent") return colorStr;
+    if (/^rgb[a]?\(/.test(colorStr) && !/color-mix|color\(|oklab\(/.test(colorStr)) return colorStr;
+    if (/^#[0-9a-f]{3,8}$/i.test(colorStr)) return colorStr;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 1;
+    canvas.height = 1;
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, 1, 1);
+    ctx.fillStyle = colorStr;
+    ctx.fillRect(0, 0, 1, 1);
+    const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
+    if (a < 255) return `rgba(${r}, ${g}, ${b}, ${(a / 255).toFixed(3)})`;
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 function replaceImageForImage(img) {
@@ -94,6 +168,37 @@ function replaceImageForImage(img) {
     replacement.style.opacity = imageStyle.opacity;
 
     img.replaceWith(replacement);
+}
+
+function replaceTextInputForImage(input) {
+    const doc = input.ownerDocument;
+    const style = doc.defaultView.getComputedStyle(input);
+    const replacement = doc.createElement("span");
+
+    replacement.textContent = input.value;
+    replacement.style.display = "inline-block";
+    replacement.style.boxSizing = "border-box";
+    replacement.style.flex = style.flex;
+    replacement.style.minWidth = style.minWidth;
+    replacement.style.maxWidth = style.maxWidth;
+    replacement.style.width = style.width;
+    replacement.style.fontFamily = style.fontFamily;
+    replacement.style.fontSize = style.fontSize;
+    replacement.style.fontWeight = style.fontWeight;
+    replacement.style.color = style.color;
+    replacement.style.backgroundColor = "transparent";
+    replacement.style.border = "none";
+    replacement.style.borderBottom = style.borderBottom;
+    replacement.style.borderRadius = "0";
+    replacement.style.padding = style.padding;
+    replacement.style.margin = style.margin;
+    replacement.style.lineHeight = style.lineHeight;
+    replacement.style.verticalAlign = "baseline";
+    replacement.style.overflow = "hidden";
+    replacement.style.whiteSpace = "nowrap";
+    replacement.style.textOverflow = "ellipsis";
+
+    input.replaceWith(replacement);
 }
 
 function replaceChoiceInputForImage(input) {
