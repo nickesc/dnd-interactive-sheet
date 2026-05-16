@@ -225,7 +225,14 @@ function replaceTextInputForImage(input) {
     const style = doc.defaultView.getComputedStyle(input);
     const replacement = doc.createElement("span");
 
-    replacement.textContent = input.value;
+    if (input.value) {
+        replacement.textContent = input.value;
+    } else {
+        const placeholder = doc.createElement("span");
+        placeholder.textContent = "\u00a0";
+        placeholder.style.visibility = "hidden";
+        replacement.append(placeholder);
+    }
     replacement.style.display = "inline-flex";
     replacement.style.alignItems = "center";
     replacement.style.boxSizing = "border-box";
@@ -233,7 +240,6 @@ function replaceTextInputForImage(input) {
     replacement.style.minWidth = style.minWidth;
     replacement.style.maxWidth = style.maxWidth;
     replacement.style.width = style.width;
-    replacement.style.height = style.height;
     replacement.style.fontFamily = style.fontFamily;
     replacement.style.fontSize = style.fontSize;
     replacement.style.fontWeight = style.fontWeight;
@@ -244,7 +250,7 @@ function replaceTextInputForImage(input) {
     replacement.style.borderRadius = "0";
     replacement.style.padding = style.padding;
     replacement.style.margin = style.margin;
-    replacement.style.lineHeight = style.lineHeight;
+    replacement.style.lineHeight = "1";
     replacement.style.verticalAlign = "baseline";
     replacement.style.overflow = "hidden";
     replacement.style.whiteSpace = "nowrap";
