@@ -37,6 +37,8 @@
         color var(--transition-slow) ease-in-out,
         background-color var(--transition-slow) ease-in-out,
         border-color var(--transition-slow) ease-in-out;
+    scrollbar-color: var(--accent-color-dark) transparent;
+    scrollbar-width: thin;
 }
 
 body {
