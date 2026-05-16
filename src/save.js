@@ -90,6 +90,26 @@ function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
         .forEach((label) => {
             label.style.flexBasis = "6ch";
         });
+    if (prioritiesSplit) {
+        Array.from(prioritiesSplit.children).forEach((column) => {
+            if (!column.classList.contains("column")) return;
+            column.style.flex = "0 0 max-content";
+            column.style.width = "max-content";
+        });
+
+        const rightColumn = prioritiesSplit.querySelector(".input-row-right-column");
+        if (rightColumn) {
+            const currentWidth =
+                rightColumn.getBoundingClientRect().width ||
+                parseFloat(clonedDocument.defaultView.getComputedStyle(rightColumn).width);
+
+            if (Number.isFinite(currentWidth) && currentWidth > 0) {
+                const widenedWidth = `calc(${currentWidth}px + 1ch)`;
+                rightColumn.style.flex = `0 0 ${widenedWidth}`;
+                rightColumn.style.width = widenedWidth;
+            }
+        }
+    }
 
     clonedDocument.querySelectorAll("#remove-color-button, #add-color-button").forEach((el) => {
         el.style.opacity = "0";
