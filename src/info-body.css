@@ -50,39 +50,13 @@
 }
 
 #character-body {
-    --radio-group-width: calc((17.5px * 5) + (2px * 4));
-
-    .radio-input-container {
-        flex: 0 1 var(--radio-group-width);
-    }
-
-    input[type="text"] {
-        flex: 0 1 var(--radio-group-width);
-        min-width: 0;
-    }
-
-    .input-row-left-column .input-row label {
-        flex-basis: 9ch;
-    }
-    .input-row-right-column .input-row label {
-        flex-basis: 7ch;
-    }
-}
-
-#character-skills {
-    .input-row label {
-        flex-basis: 17ch;
+    .input-row.text-input {
+        flex-direction: column;
+        margin: var(--gap) 0;
     }
 }
 
 #character-mind {
-    .input-row-left-column .input-row label {
-        flex-basis: 12ch;
-    }
-    .input-row-right-column .input-row label {
-        flex-basis: 8ch;
-    }
-
     .range-input label {
         font-size: 14pt;
         flex: 0 0 8.5ch;
@@ -90,32 +64,9 @@
 }
 
 #character-social {
-    .input-row-left-column .input-row label {
-        flex-basis: 8.5ch;
-    }
-    .input-row-mid-column .input-row label,
-    .input-row-right-column .input-row label {
-        flex-basis: 10ch;
-    }
-
     .range-input label {
         font-size: 14pt;
         flex: 0 0 8ch;
-    }
-}
-
-#character-beliefs {
-    .input-row label {
-        flex-basis: 12ch;
-    }
-}
-
-#character-priorities {
-    .input-row-left-column .input-row label {
-        flex-basis: 7ch;
-    }
-    .input-row-right-column .input-row label {
-        flex-basis: 13ch;
     }
 }
 
@@ -154,6 +105,42 @@
         }
     }
 
+    #character-body {
+        --radio-group-width: calc((17.5px * 5) + (2px * 4));
+
+        .input-row.text-input {
+            flex-direction: row;
+            margin: 0;
+        }
+
+        input[type="text"] {
+            flex: 0 1 var(--radio-group-width);
+            min-width: 0;
+        }
+
+        .input-row-left-column .input-row label {
+            flex-basis: 9ch;
+        }
+        .input-row-right-column .input-row label {
+            flex-basis: 7ch;
+        }
+    }
+
+    #character-skills {
+        .input-row label {
+            flex-basis: 17ch;
+        }
+    }
+
+    #character-mind {
+        .input-row-left-column .input-row label {
+            flex-basis: 12ch;
+        }
+        .input-row-right-column .input-row label {
+            flex-basis: 8ch;
+        }
+    }
+
     #character-mind,
     #character-social {
         .range-input label,
@@ -169,6 +156,14 @@
     }
 
     #character-social {
+        .input-row-left-column .input-row label {
+            flex-basis: 8.5ch;
+        }
+        .input-row-mid-column .input-row label,
+        .input-row-right-column .input-row label {
+            flex-basis: 10ch;
+        }
+
         .range-input .left-label {
             flex: 0 0 8.5ch;
         }
@@ -186,7 +181,16 @@
         }
     }
 
+    #character-beliefs {
+        .input-row label {
+            flex-basis: 12ch;
+        }
+    }
+
     #character-priorities {
+        .input-row-left-column .input-row label {
+            flex-basis: 7ch;
+        }
         .input-row-right-column .input-row label {
             flex-basis: 16ch;
         }
