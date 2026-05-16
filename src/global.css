@@ -210,20 +210,20 @@ body {
 }
 
 a {
-    color: var(--accent-color);
+    color: var(--accent-color-dark);
     text-decoration: none;
     transition: color var(--transition-fast) ease-in-out;
 
     &:hover {
-        color: var(--accent-color-hover);
+        color: var(--accent-color-dark-hover);
     }
 
     &:visited {
-        color: var(--accent-color-visited);
+        color: var(--accent-color-dark-visited);
     }
 
     &:active {
-        color: var(--accent-color-active);
+        color: var(--accent-color-dark-active);
     }
 }
 
