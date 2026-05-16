@@ -54,6 +54,15 @@
         flex-direction: column;
         margin: var(--gap) 0;
     }
+
+    input[type="text"] {
+        text-align: center;
+    }
+
+    input[type="text"]::placeholder {
+        font-weight: bold;
+        opacity: 0.5;
+    }
 }
 
 #character-mind {
@@ -116,6 +125,11 @@
         input[type="text"] {
             flex: 0 1 var(--radio-group-width);
             min-width: 0;
+        }
+
+        input[type="text"]::placeholder {
+            font-weight: bold;
+            opacity: 0;
         }
 
         .input-row-left-column .input-row label {

@@ -238,6 +238,8 @@ function replaceTextInputForImage(input) {
     replacement.style.fontSize = style.fontSize;
     replacement.style.fontWeight = style.fontWeight;
     replacement.style.color = style.color;
+    replacement.style.textAlign = style.textAlign;
+    replacement.style.justifyContent = getFlexJustifyContentFromTextAlign(style.textAlign);
     replacement.style.backgroundColor = "transparent";
     replacement.style.border = "none";
     replacement.style.borderBottom = style.borderBottom;
@@ -251,6 +253,12 @@ function replaceTextInputForImage(input) {
     replacement.style.textOverflow = "ellipsis";
 
     input.replaceWith(replacement);
+}
+
+function getFlexJustifyContentFromTextAlign(textAlign) {
+    if (textAlign === "center") return "center";
+    if (textAlign === "right" || textAlign === "end") return "flex-end";
+    return "flex-start";
 }
 
 function replaceChoiceInputForImage(input) {
