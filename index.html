@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Description" />
         <title>DnD Sheet</title>
         <link rel="stylesheet" href="src/global.css" />
         <link rel="stylesheet" href="src/sections.css" />
@@ -10,13 +11,14 @@
         <link rel="stylesheet" href="src/info-body.css" />
         <link rel="stylesheet" href="src/fonts/index.css" />
         <link rel="stylesheet" href="src/footer.css" />
-        <script defer src="src/visuals.js"></script>
-        <script defer src="src/inputs.js"></script>
-        <script defer src="src/export.js"></script>
-        <script defer src="src/save.js"></script>
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"
+        <script src="src/visuals.js" defer></script>
+        <script src="src/inputs.js" defer></script>
+        <script src="src/export.js" defer></script>
+        <script src="src/save.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"
+                crossorigin="anonymous" defer
                 integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                referrerpolicy="no-referrer"></script>
     </head>
 
     <body>
@@ -24,21 +26,21 @@
             <h1 hidden>DnD Personality Sheet</h1>
         </header>
         <main>
-            <div id="top" class="split-row">
-                <section id="character-visuals" class="left-split column">
+            <div class="split-row" id="top">
+                <section class="left-split column" id="character-visuals">
                     <h2 hidden>Character Visual Information</h2>
                     <div id="portrait-palette-container">
                         <div class="image-container clickable"
                              onclick="this.querySelector('input[type=file]').click()" tabindex="0">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4="
-                                 alt="Character Portrait" title="Character portrait" />
+                                 title="Character portrait" alt="Character Portrait" />
                             <span class="placeholder-text">Upload<br />portrait</span>
-                            <input class="hidden-input" type="file" accept="image/*"
-                                   onchange="updateImage(event)" hidden />
+                            <input class="hidden-input" type="file" accept="image/*" hidden
+                                   onchange="updateImage(event)" />
                         </div>
-                        <div id="character-palette" class="character-palette row">
-                            <button id="remove-color-button" class="clickable palette-button"
-                                    onclick="removeColor()">
+                        <div class="character-palette row" id="character-palette">
+                            <button class="clickable palette-button" id="remove-color-button"
+                                    type="button" onclick="removeColor()">
                                 <span class="minus-cross"></span>
                             </button>
                             <label class="character-palette-circle clickable">
@@ -66,92 +68,92 @@
                                        aria-label="Choose palette color"
                                        onchange="updatePaletteColor(event)" />
                             </label>
-                            <button id="add-color-button" class="clickable palette-button"
-                                    onclick="addColor()">
+                            <button class="clickable palette-button" id="add-color-button"
+                                    type="button" onclick="addColor()">
                                 <span class="plus-cross"></span>
                                 <span class="minus-cross"></span>
                             </button>
                         </div>
                     </div>
-                    <div id="character-images" class="character-images row">
+                    <div class="character-images row" id="character-images">
                         <div class="image-container clickable"
                              onclick="this.querySelector('input[type=file]').click()" tabindex="0">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4="
-                                 alt="Character Image 1" title="Character image" />
-                            <input class="hidden-input" type="file" accept="image/*"
-                                   onchange="updateImage(event)" hidden />
+                                 title="Character image" alt="Character Image 1" />
+                            <input class="hidden-input" type="file" accept="image/*" hidden
+                                   onchange="updateImage(event)" />
                             <span class="placeholder-text">Upload<br />image</span>
                         </div>
                         <div class="image-container clickable"
                              onclick="this.querySelector('input[type=file]').click()" tabindex="0">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4="
-                                 alt="Character Image 2" title="Character image" />
-                            <input class="hidden-input" type="file" accept="image/*"
-                                   onchange="updateImage(event)" hidden />
+                                 title="Character image" alt="Character Image 2" />
+                            <input class="hidden-input" type="file" accept="image/*" hidden
+                                   onchange="updateImage(event)" />
                             <span class="placeholder-text">Upload<br />image</span>
                         </div>
                     </div>
                 </section>
-                <div id="info-body" class="column">
+                <div class="column" id="info-body">
                     <section id="character-info">
                         <h2 hidden>Character Information</h2>
                         <div class="text-input input-row">
-                            <label for="character-name" class="input-label">Name:</label>
+                            <label class="input-label" for="character-name">Name:</label>
                             <input class="text-input" id="character-name" name="character-name"
-                                   type="text" autocomplete="off" data-lpignore="true"
-                                   data-form-type="other" />
+                                   type="text" autocomplete="off" data-form-type="other"
+                                   data-lpignore="true" />
                         </div>
                         <div class="text-input input-row">
-                            <label for="character-nickname" class="input-label">Nickname:</label>
+                            <label class="input-label" for="character-nickname">Nickname:</label>
                             <input class="text-input" id="character-nickname"
                                    name="character-nickname" type="text" autocomplete="off"
-                                   data-lpignore="true" data-form-type="other" />
+                                   data-form-type="other" data-lpignore="true" />
                         </div>
                         <div class="text-input input-row">
-                            <label for="character-race" class="input-label">Race/Species:</label>
+                            <label class="input-label" for="character-race">Race/Species:</label>
                             <input class="text-input" id="character-race" name="character-race"
-                                   type="text" autocomplete="off" data-lpignore="true"
-                                   data-form-type="other" />
+                                   type="text" autocomplete="off" data-form-type="other"
+                                   data-lpignore="true" />
                         </div>
                         <div class="info-split-row column">
                             <div class="text-input input-row left-info-column">
-                                <label for="character-age" class="input-label">Age:</label>
+                                <label class="input-label" for="character-age">Age:</label>
                                 <input class="text-input" id="character-age" name="character-age"
-                                       type="text" autocomplete="off" data-lpignore="true"
-                                       data-form-type="other" />
+                                       type="text" autocomplete="off" data-form-type="other"
+                                       data-lpignore="true" />
                             </div>
                             <div class="text-input input-row right-info-column">
-                                <label for="character-gender" class="input-label">Gender:</label>
+                                <label class="input-label" for="character-gender">Gender:</label>
                                 <input class="text-input" id="character-gender"
                                        name="character-gender" type="text" autocomplete="off"
-                                       data-lpignore="true" data-form-type="other" />
+                                       data-form-type="other" data-lpignore="true" />
                             </div>
                         </div>
                         <div class="text-input input-row">
-                            <label for="character-alignment" class="input-label">Alignment:</label>
+                            <label class="input-label" for="character-alignment">Alignment:</label>
                             <input class="text-input" id="character-alignment"
                                    name="character-alignment" type="text" autocomplete="off"
-                                   data-lpignore="true" data-form-type="other" />
+                                   data-form-type="other" data-lpignore="true" />
                         </div>
                         <div class="text-input input-row">
-                            <label for="character-class" class="input-label">Class/Job:</label>
+                            <label class="input-label" for="character-class">Class/Job:</label>
                             <input class="text-input" id="character-class" name="character-class"
-                                   type="text" autocomplete="off" data-lpignore="true"
-                                   data-form-type="other" />
+                                   type="text" autocomplete="off" data-form-type="other"
+                                   data-lpignore="true" />
                         </div>
                     </section>
-                    <section id="character-body" class="right-split container">
+                    <section class="right-split container" id="character-body">
                         <h2><span class="heading-bg">Body</span></h2>
                         <div class="input-row-split column">
                             <div class="column input-row-left-column">
                                 <div class="text-input input-row">
                                     <input class="text-input" id="character-height"
                                            name="character-height" type="text" autocomplete="off"
-                                           data-lpignore="true" data-form-type="other" />
-                                    <label for="character-height" class="input-label">Height</label>
+                                           data-form-type="other" data-lpignore="true" />
+                                    <label class="input-label" for="character-height">Height</label>
                                 </div>
                                 <div class="radio-input input-row">
-                                    <div id="strength-level" class="radio-input-container row">
+                                    <div class="radio-input-container row" id="strength-level">
                                         <input type="radio" />
                                         <input type="radio" />
                                         <input type="radio" />
@@ -161,7 +163,7 @@
                                     <label class="input-label">Strength</label>
                                 </div>
                                 <div class="radio-input input-row">
-                                    <div id="dexterity-level" class="radio-input-container row">
+                                    <div class="radio-input-container row" id="dexterity-level">
                                         <input type="radio" />
                                         <input type="radio" />
                                         <input type="radio" />
@@ -171,7 +173,7 @@
                                     <label class="input-label">Dexterity</label>
                                 </div>
                                 <div class="radio-input input-row">
-                                    <div id="health-level" class="radio-input-container row">
+                                    <div class="radio-input-container row" id="health-level">
                                         <input type="radio" />
                                         <input type="radio" />
                                         <input type="radio" />
@@ -183,7 +185,7 @@
                             </div>
                             <div class="column input-row-right-column">
                                 <div class="radio-input input-row">
-                                    <div id="energy-level" class="radio-input-container row">
+                                    <div class="radio-input-container row" id="energy-level">
                                         <input type="radio" />
                                         <input type="radio" />
                                         <input type="radio" />
@@ -193,7 +195,7 @@
                                     <label class="input-label">Energy</label>
                                 </div>
                                 <div class="radio-input input-row">
-                                    <div id="beauty-level" class="radio-input-container row">
+                                    <div class="radio-input-container row" id="beauty-level">
                                         <input type="radio" />
                                         <input type="radio" />
                                         <input type="radio" />
@@ -203,7 +205,7 @@
                                     <label class="input-label">Beauty</label>
                                 </div>
                                 <div class="radio-input input-row">
-                                    <div id="style-level" class="radio-input-container row">
+                                    <div class="radio-input-container row" id="style-level">
                                         <input type="radio" />
                                         <input type="radio" />
                                         <input type="radio" />
@@ -213,7 +215,7 @@
                                     <label class="input-label">Style</label>
                                 </div>
                                 <div class="radio-input input-row">
-                                    <div id="hygiene-level" class="radio-input-container row">
+                                    <div class="radio-input-container row" id="hygiene-level">
                                         <input type="radio" />
                                         <input type="radio" />
                                         <input type="radio" />
@@ -227,11 +229,11 @@
                     </section>
                 </div>
             </div>
-            <div id="mid-upper" class="split-row">
-                <section id="character-skills" class="left-split container column">
+            <div class="split-row" id="mid-upper">
+                <section class="left-split container column" id="character-skills">
                     <h2><span class="heading-bg">Skills</span></h2>
                     <div class="column">
-                        <div id="perception-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="perception-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -239,7 +241,7 @@
                             </div>
                             <label class="input-label">Perception</label>
                         </div>
-                        <div id="communication-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="communication-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -247,7 +249,7 @@
                             </div>
                             <label class="input-label">Communication</label>
                         </div>
-                        <div id="persuasion-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="persuasion-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -255,7 +257,7 @@
                             </div>
                             <label class="input-label">Persuasion</label>
                         </div>
-                        <div id="mediation-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="mediation-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -263,7 +265,7 @@
                             </div>
                             <label class="input-label">Mediation</label>
                         </div>
-                        <div id="literacy-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="literacy-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -271,7 +273,7 @@
                             </div>
                             <label class="input-label">Literacy</label>
                         </div>
-                        <div id="creativity-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="creativity-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -279,7 +281,7 @@
                             </div>
                             <label class="input-label">Creativity</label>
                         </div>
-                        <div id="cooking-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="cooking-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -287,7 +289,7 @@
                             </div>
                             <label class="input-label">Cooking</label>
                         </div>
-                        <div id="tech-savvy-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="tech-savvy-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -295,7 +297,7 @@
                             </div>
                             <label class="input-label">Tech savvy</label>
                         </div>
-                        <div id="combat-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="combat-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -303,7 +305,7 @@
                             </div>
                             <label class="input-label">Combat</label>
                         </div>
-                        <div id="survival-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="survival-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -311,7 +313,7 @@
                             </div>
                             <label class="input-label">Survival</label>
                         </div>
-                        <div id="stealth-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="stealth-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -319,7 +321,7 @@
                             </div>
                             <label class="input-label">Stealth</label>
                         </div>
-                        <div id="street-smarts-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="street-smarts-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -327,7 +329,7 @@
                             </div>
                             <label class="input-label">Street smarts</label>
                         </div>
-                        <div id="seduction-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="seduction-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -335,7 +337,7 @@
                             </div>
                             <label class="input-label">Seduction</label>
                         </div>
-                        <div id="luck-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="luck-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -343,7 +345,7 @@
                             </div>
                             <label class="input-label">Luck</label>
                         </div>
-                        <div id="handling-animals-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="handling-animals-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -351,7 +353,7 @@
                             </div>
                             <label class="input-label">Handling Animals</label>
                         </div>
-                        <div id="pacifying-children-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="pacifying-children-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -361,11 +363,11 @@
                         </div>
                     </div>
                 </section>
-                <section id="character-mind" class="container right-split column">
+                <section class="container right-split column" id="character-mind">
                     <h2><span class="heading-bg">Mind</span></h2>
                     <div class="input-row-split column">
                         <div class="column input-row-left-column">
-                            <div id="intelligence-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="intelligence-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -375,7 +377,7 @@
                                 </div>
                                 <label class="input-label">Intelligence</label>
                             </div>
-                            <div id="happiness-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="happiness-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -385,7 +387,7 @@
                                 </div>
                                 <label class="input-label">Happiness</label>
                             </div>
-                            <div id="spirituality-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="spirituality-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -395,7 +397,7 @@
                                 </div>
                                 <label class="input-label">Spirituality</label>
                             </div>
-                            <div id="confidence-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="confidence-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -407,7 +409,7 @@
                             </div>
                         </div>
                         <div class="column input-row-right-column">
-                            <div id="humor-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="humor-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -417,7 +419,7 @@
                                 </div>
                                 <label class="input-label">Humor</label>
                             </div>
-                            <div id="anxiety-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="anxiety-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -427,7 +429,7 @@
                                 </div>
                                 <label class="input-label">Anxiety</label>
                             </div>
-                            <div id="patience-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="patience-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -437,7 +439,7 @@
                                 </div>
                                 <label class="input-label">Patience</label>
                             </div>
-                            <div id="passion-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="passion-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -453,49 +455,49 @@
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="nice-range"><span
                                       class="special-label">Nice</span></label>
-                            <input type="range" id="nice-range" name="nice-range" />
+                            <input id="nice-range" name="nice-range" type="range" />
                             <label class="input-label right-label" for="nice-range"><span
                                       class="special-label">Mean</span></label>
                         </div>
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="brave-range"><span
                                       class="special-label">Brave</span></label>
-                            <input type="range" id="brave-range" name="brave-range" />
+                            <input id="brave-range" name="brave-range" type="range" />
                             <label class="input-label right-label" for="brave-range"><span
                                       class="special-label">Cowardly</span></label>
                         </div>
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="pacifist-range"><span
                                       class="special-label">Pacifist</span></label>
-                            <input type="range" id="pacifist-range" name="pacifist-range" />
+                            <input id="pacifist-range" name="pacifist-range" type="range" />
                             <label class="input-label right-label" for="pacifist-range"><span
                                       class="special-label">Violent</span></label>
                         </div>
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="thoughtful-range"><span
                                       class="special-label">Thoughtful</span></label>
-                            <input type="range" id="thoughtful-range" name="thoughtful-range" />
+                            <input id="thoughtful-range" name="thoughtful-range" type="range" />
                             <label class="input-label right-label" for="thoughtful-range"><span
                                       class="special-label">Impulsive</span></label>
                         </div>
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="agreeable-range"><span
                                       class="special-label">Agreeable</span></label>
-                            <input type="range" id="agreeable-range" name="agreeable-range" />
+                            <input id="agreeable-range" name="agreeable-range" type="range" />
                             <label class="input-label right-label" for="agreeable-range"><span
                                       class="special-label">Contrary</span></label>
                         </div>
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="idealistic-range"><span
                                       class="special-label">Idealistic</span></label>
-                            <input type="range" id="idealistic-range" name="idealistic-range" />
+                            <input id="idealistic-range" name="idealistic-range" type="range" />
                             <label class="input-label right-label" for="idealistic-range"><span
                                       class="special-label">Pragmatic</span></label>
                         </div>
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="frugal-range"><span
                                       class="special-label">Frugal</span></label>
-                            <input type="range" id="frugal-range" name="frugal-range" />
+                            <input id="frugal-range" name="frugal-range" type="range" />
                             <label class="input-label right-label" for="frugal-range"><span
                                       class="special-label">Big
                                     spender</span></label>
@@ -503,14 +505,14 @@
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="extrovert-range"><span
                                       class="special-label">Extrovert</span></label>
-                            <input type="range" id="extrovert-range" name="extrovert-range" />
+                            <input id="extrovert-range" name="extrovert-range" type="range" />
                             <label class="input-label right-label" for="extrovert-range"><span
                                       class="special-label">Introvert</span></label>
                         </div>
                         <div class="range-input input-row">
                             <label class="input-label left-label" for="collected-range"><span
                                       class="special-label">Collected</span></label>
-                            <input type="range" id="collected-range" name="collected-range" />
+                            <input id="collected-range" name="collected-range" type="range" />
                             <label class="input-label right-label" for="collected-range"><span
                                       class="special-label">Wild</span></label>
                         </div>
@@ -518,40 +520,40 @@
                     <div class="input-row-split checkbox-split row">
                         <div class="column checkbox-row-left-column">
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="ambitious-checkbox"
-                                       name="ambitious-checkbox" />
+                                <input id="ambitious-checkbox" name="ambitious-checkbox"
+                                       type="checkbox" />
                                 <label class="input-label" for="ambitious-checkbox"><span
                                           class="special-label">Ambitious</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="stubborn-checkbox"
-                                       name="stubborn-checkbox" />
+                                <input id="stubborn-checkbox" name="stubborn-checkbox"
+                                       type="checkbox" />
                                 <label class="input-label" for="stubborn-checkbox"><span
                                           class="special-label">Stubborn</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="decisive-checkbox"
-                                       name="decisive-checkbox" />
+                                <input id="decisive-checkbox" name="decisive-checkbox"
+                                       type="checkbox" />
                                 <label class="input-label" for="decisive-checkbox"><span
                                           class="special-label">Decisive</span></label>
                             </div>
                         </div>
                         <div class="column checkbox-row-right-column">
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="possessive-checkbox"
-                                       name="possessive-checkbox" />
+                                <input id="possessive-checkbox" name="possessive-checkbox"
+                                       type="checkbox" />
                                 <label class="input-label" for="possessive-checkbox"><span
                                           class="special-label">Possessive</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="jealous-checkbox"
-                                       name="jealous-checkbox" />
+                                <input id="jealous-checkbox" name="jealous-checkbox"
+                                       type="checkbox" />
                                 <label class="input-label" for="jealous-checkbox"><span
                                           class="special-label">Jealous</span></label>
                             </div>
                             <div class="checkbox-input input-row">
-                                <input type="checkbox" id="perfectionist-checkbox"
-                                       name="perfectionist-checkbox" />
+                                <input id="perfectionist-checkbox" name="perfectionist-checkbox"
+                                       type="checkbox" />
                                 <label class="input-label" for="perfectionist-checkbox"><span
                                           class="special-label">Perfectionist</span></label>
                             </div>
@@ -559,12 +561,12 @@
                     </div>
                 </section>
             </div>
-            <div id="mid-lower" class="split-row">
-                <section id="character-social" class="right-split container column">
+            <div class="split-row" id="mid-lower">
+                <section class="right-split container column" id="character-social">
                     <h2><span class="heading-bg">Social</span></h2>
                     <div class="input-row-split column">
                         <div class="column input-row-left-column">
-                            <div id="charisma-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="charisma-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -574,7 +576,7 @@
                                 </div>
                                 <label class="input-label">Charisma</label>
                             </div>
-                            <div id="empathy-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="empathy-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -586,7 +588,7 @@
                             </div>
                         </div>
                         <div class="column input-row-mid-column">
-                            <div id="generosity-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="generosity-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -596,7 +598,7 @@
                                 </div>
                                 <label class="input-label">Generosity</label>
                             </div>
-                            <div id="wealth-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="wealth-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -608,7 +610,7 @@
                             </div>
                         </div>
                         <div class="column input-row-right-column">
-                            <div id="aggression-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="aggression-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -618,7 +620,7 @@
                                 </div>
                                 <label class="input-label">Aggression</label>
                             </div>
-                            <div id="libido-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="libido-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -635,28 +637,28 @@
                             <div class="range-input input-row">
                                 <label class="input-label left-label" for="honest-range"><span
                                           class="special-label">Honest</span></label>
-                                <input type="range" id="honest-range" name="honest-range" />
+                                <input id="honest-range" name="honest-range" type="range" />
                                 <label class="input-label right-label" for="honest-range"><span
                                           class="special-label">Deceptive</span></label>
                             </div>
                             <div class="range-input input-row">
                                 <label class="input-label left-label" for="leader-range"><span
                                           class="special-label">Leader</span></label>
-                                <input type="range" id="leader-range" name="leader-range" />
+                                <input id="leader-range" name="leader-range" type="range" />
                                 <label class="input-label right-label" for="leader-range"><span
                                           class="special-label">Follower</span></label>
                             </div>
                             <div class="range-input input-row">
                                 <label class="input-label left-label" for="polite-range"><span
                                           class="special-label">Polite</span></label>
-                                <input type="range" id="polite-range" name="polite-range" />
+                                <input id="polite-range" name="polite-range" type="range" />
                                 <label class="input-label right-label" for="polite-range"><span
                                           class="special-label">Rude</span></label>
                             </div>
                             <div class="range-input input-row">
                                 <label class="input-label left-label" for="political-range"><span
                                           class="special-label">Political</span></label>
-                                <input type="range" id="political-range" name="political-range" />
+                                <input id="political-range" name="political-range" type="range" />
                                 <label class="input-label right-label" for="political-range"><span
                                           class="special-label">Indifferent</span></label>
                             </div>
@@ -664,51 +666,51 @@
                         <div class="input-row-split checkbox-split range-checkbox-right-column row">
                             <div class="column checkbox-row-left-column">
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="cool-checkbox"
-                                           name="cool-checkbox" />
+                                    <input id="cool-checkbox" name="cool-checkbox"
+                                           type="checkbox" />
                                     <label class="input-label" for="cool-checkbox"><span
                                               class="special-label">Cool</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="cute-checkbox"
-                                           name="cute-checkbox" />
+                                    <input id="cute-checkbox" name="cute-checkbox"
+                                           type="checkbox" />
                                     <label class="input-label" for="cute-checkbox"><span
                                               class="special-label">Cute</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="fun-checkbox" name="fun-checkbox" />
+                                    <input id="fun-checkbox" name="fun-checkbox" type="checkbox" />
                                     <label class="input-label" for="fun-checkbox"><span
                                               class="special-label">Fun</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="gullible-checkbox"
-                                           name="gullible-checkbox" />
+                                    <input id="gullible-checkbox" name="gullible-checkbox"
+                                           type="checkbox" />
                                     <label class="input-label" for="gullible-checkbox"><span
                                               class="special-label">Gullible</span></label>
                                 </div>
                             </div>
                             <div class="column checkbox-row-right-column">
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="flirty-checkbox"
-                                           name="flirty-checkbox" />
+                                    <input id="flirty-checkbox" name="flirty-checkbox"
+                                           type="checkbox" />
                                     <label class="input-label" for="flirty-checkbox"><span
                                               class="special-label">Flirty</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="obedient-checkbox"
-                                           name="obedient-checkbox" />
+                                    <input id="obedient-checkbox" name="obedient-checkbox"
+                                           type="checkbox" />
                                     <label class="input-label" for="obedient-checkbox"><span
                                               class="special-label">Obedient</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="forgiving-checkbox"
-                                           name="forgiving-checkbox" />
+                                    <input id="forgiving-checkbox" name="forgiving-checkbox"
+                                           type="checkbox" />
                                     <label class="input-label" for="forgiving-checkbox"><span
                                               class="special-label">Forgiving</span></label>
                                 </div>
                                 <div class="checkbox-input input-row">
-                                    <input type="checkbox" id="scary-checkbox"
-                                           name="scary-checkbox" />
+                                    <input id="scary-checkbox" name="scary-checkbox"
+                                           type="checkbox" />
                                     <label class="input-label" for="scary-checkbox"><span
                                               class="special-label">Scary</span></label>
                                 </div>
@@ -717,11 +719,11 @@
                     </div>
                 </section>
             </div>
-            <div id="bottom" class="split-row">
-                <section id="character-beliefs" class="left-split container column">
+            <div class="split-row" id="bottom">
+                <section class="left-split container column" id="character-beliefs">
                     <h2><span class="heading-bg">Beliefs</span></h2>
                     <div class="column">
-                        <div id="higher-power-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="higher-power-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -729,7 +731,7 @@
                             </div>
                             <label class="input-label">Higher power</label>
                         </div>
-                        <div id="fate-destiny-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="fate-destiny-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -737,7 +739,7 @@
                             </div>
                             <label class="input-label">Fate/destiny</label>
                         </div>
-                        <div id="magic-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="magic-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -745,7 +747,7 @@
                             </div>
                             <label class="input-label">Magic</label>
                         </div>
-                        <div id="soulmates-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="soulmates-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -753,7 +755,7 @@
                             </div>
                             <label class="input-label">Soulmates</label>
                         </div>
-                        <div id="good-evil-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="good-evil-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -761,7 +763,7 @@
                             </div>
                             <label class="input-label">Good & evil</label>
                         </div>
-                        <div id="luck2-level" class="radio-input input-row">
+                        <div class="radio-input input-row" id="luck2-level">
                             <div class="radio-input-container row">
                                 <input type="radio" />
                                 <input type="radio" />
@@ -771,11 +773,11 @@
                         </div>
                     </div>
                 </section>
-                <section id="character-priorities" class="container right-split column">
+                <section class="container right-split column" id="character-priorities">
                     <h2><span class="heading-bg">Priorities</span></h2>
                     <div class="input-row-split column">
                         <div class="column input-row-left-column">
-                            <div id="family-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="family-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -785,7 +787,7 @@
                                 </div>
                                 <label class="input-label">Family</label>
                             </div>
-                            <div id="friends-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="friends-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -795,7 +797,7 @@
                                 </div>
                                 <label class="input-label">Friends</label>
                             </div>
-                            <div id="love-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="love-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -805,7 +807,7 @@
                                 </div>
                                 <label class="input-label">Love</label>
                             </div>
-                            <div id="home-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="home-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -815,7 +817,7 @@
                                 </div>
                                 <label class="input-label">Home</label>
                             </div>
-                            <div id="health2-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="health2-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -825,7 +827,7 @@
                                 </div>
                                 <label class="input-label">Health</label>
                             </div>
-                            <div id="praise-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="praise-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -837,7 +839,7 @@
                             </div>
                         </div>
                         <div class="column input-row-right-column">
-                            <div id="justice-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="justice-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -847,7 +849,7 @@
                                 </div>
                                 <label class="input-label">Justice</label>
                             </div>
-                            <div id="truth-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="truth-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -857,7 +859,7 @@
                                 </div>
                                 <label class="input-label">Truth</label>
                             </div>
-                            <div id="power-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="power-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -867,7 +869,7 @@
                                 </div>
                                 <label class="input-label">Power</label>
                             </div>
-                            <div id="fame-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="fame-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -877,7 +879,7 @@
                                 </div>
                                 <label class="input-label">Fame</label>
                             </div>
-                            <div id="wealth2-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="wealth2-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -887,7 +889,7 @@
                                 </div>
                                 <label class="input-label">Wealth</label>
                             </div>
-                            <div id="others-opinions-level" class="radio-input input-row">
+                            <div class="radio-input input-row" id="others-opinions-level">
                                 <div class="radio-input-container row">
                                     <input type="radio" />
                                     <input type="radio" />
@@ -906,26 +908,27 @@
             </div>
             <footer class="column">
                 <div class="text-input input-row">
-                    <label for="character-author-name" class="input-label">Character by</label>
+                    <label class="input-label" for="character-author-name">Character by</label>
                     <input class="text-input" id="character-author-name"
                            name="character-author-name" type="text" autocomplete="off"
-                           data-lpignore="true" data-form-type="other" />
+                           data-form-type="other" data-lpignore="true" />
                 </div>
                 <span id="credits">Based on a <a href="img/template.png"
-                       target="_blank">template</a> by
-                    <a href="https://cparrisart.tumblr.com/" target="_blank">cparrisart</a></span>
+                       title="View the original template" target="_blank">template</a> by
+                    <a href="https://cparrisart.tumblr.com/" title="Visit cparrisart on Tumblr"
+                       target="_blank">cparrisart</a></span>
             </footer>
         </main>
         <menu>
-            <button type="button" id="save-to-image-button" class="button" onclick="saveToImage()">
+            <button class="button" id="save-to-image-button" type="button" onclick="saveToImage()">
                 Save&nbsp;to&nbsp;image
             </button>
-            <button id="export-character" class="button shrinkable"
+            <button class="button shrinkable" id="export-character" type="button"
                     onclick="exportCharacter()">Export</button>
-            <button type="button" id="import-character-button" class="button shrinkable"
+            <button class="button shrinkable" id="import-character-button" type="button"
                     onclick="document.getElementById('character-import-file').click()">
                 Import
-                <input type="file" id="character-import-file" class="hidden-input"
+                <input class="hidden-input" id="character-import-file" type="file"
                        accept="application/json,.json" hidden onchange="importCharacter(event)" />
             </button>
         </menu>
