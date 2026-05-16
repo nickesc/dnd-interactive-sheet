@@ -70,6 +70,47 @@ function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
         });
     }
 
+    const prioritiesSplit = clonedDocument.querySelector("#character-priorities .input-row-split");
+    if (prioritiesSplit) {
+        prioritiesSplit.style.justifyContent = "space-between";
+    }
+    clonedDocument
+        .querySelectorAll("#character-priorities .input-row-right-column .input-row label")
+        .forEach((label) => {
+            label.style.flexBasis = "16ch";
+        });
+    clonedDocument.querySelectorAll("#character-mind .input-row-left-column .input-row label").forEach((label) => {
+        label.style.flexBasis = "11.5ch";
+    });
+    clonedDocument.querySelectorAll("#character-body .input-row-right-column .input-row label").forEach((label) => {
+        label.style.flexBasis = "6.5ch";
+    });
+    clonedDocument
+        .querySelectorAll("#character-priorities .input-row-left-column .input-row label")
+        .forEach((label) => {
+            label.style.flexBasis = "6ch";
+        });
+    if (prioritiesSplit) {
+        Array.from(prioritiesSplit.children).forEach((column) => {
+            if (!column.classList.contains("column")) return;
+            column.style.flex = "0 0 max-content";
+            column.style.width = "max-content";
+        });
+
+        const rightColumn = prioritiesSplit.querySelector(".input-row-right-column");
+        if (rightColumn) {
+            const currentWidth =
+                rightColumn.getBoundingClientRect().width ||
+                parseFloat(clonedDocument.defaultView.getComputedStyle(rightColumn).width);
+
+            if (Number.isFinite(currentWidth) && currentWidth > 0) {
+                const widenedWidth = `calc(${currentWidth}px + 1ch)`;
+                rightColumn.style.flex = `0 0 ${widenedWidth}`;
+                rightColumn.style.width = widenedWidth;
+            }
+        }
+    }
+
     clonedDocument.querySelectorAll("#remove-color-button, #add-color-button").forEach((el) => {
         el.style.opacity = "0";
         el.style.pointerEvents = "none";
@@ -185,12 +226,14 @@ function replaceTextInputForImage(input) {
     const replacement = doc.createElement("span");
 
     replacement.textContent = input.value;
-    replacement.style.display = "inline-block";
+    replacement.style.display = "inline-flex";
+    replacement.style.alignItems = "center";
     replacement.style.boxSizing = "border-box";
     replacement.style.flex = style.flex;
     replacement.style.minWidth = style.minWidth;
     replacement.style.maxWidth = style.maxWidth;
     replacement.style.width = style.width;
+    replacement.style.height = style.height;
     replacement.style.fontFamily = style.fontFamily;
     replacement.style.fontSize = style.fontSize;
     replacement.style.fontWeight = style.fontWeight;
