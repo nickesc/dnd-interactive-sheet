@@ -149,7 +149,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@container page (min-width: 768px) {
     #character-palette {
         .character-palette-circle {
             flex: 0 1 14cqw;

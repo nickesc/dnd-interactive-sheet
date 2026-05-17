@@ -1,4 +1,6 @@
 :root {
+    container: page / inline-size;
+
     --start-color: #161616;
     --start-bg-color: #fff;
 
@@ -278,8 +280,9 @@ button {
     }
 }
 
-@media (min-width: 768px) {
-    :root {
+@container page (min-width: 768px) {
+    body,
+    main {
         --gap: var(--desktop-gap);
     }
 

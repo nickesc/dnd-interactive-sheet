@@ -22,6 +22,7 @@ async function saveToImage() {
         const result = await snap(exportEl, {
             scale: exportScale,
             dpr: 1,
+            embedFonts: true,
             backgroundColor: bgColor,
         });
         await result.download({format: "png", filename: "character.png"});
@@ -98,6 +99,7 @@ function createSnapdomExportElement(source, {contentWidth, sidePadding, topPaddi
     const exportWidth = contentWidth + sidePadding * 2;
 
     syncFormControlState(source, clone);
+    syncImageState(source, clone);
 
     wrapper.style.position = "fixed";
     wrapper.style.left = "-10000px";
@@ -107,6 +109,7 @@ function createSnapdomExportElement(source, {contentWidth, sidePadding, topPaddi
     wrapper.style.padding = `${topPadding}px ${sidePadding}px 0`;
     wrapper.style.backgroundColor = backgroundColor;
     wrapper.style.pointerEvents = "none";
+    wrapper.style.container = "page / inline-size";
 
     clone.style.width = `${contentWidth}px`;
     clone.style.maxWidth = `${contentWidth}px`;
@@ -134,6 +137,20 @@ function syncFormControlState(source, clone) {
         } else if (sourceControl instanceof HTMLSelectElement) {
             cloneControl.selectedIndex = sourceControl.selectedIndex;
         }
+    });
+}
+
+function syncImageState(source, clone) {
+    const sourceImages = source.querySelectorAll("img");
+    const cloneImages = clone.querySelectorAll("img");
+
+    sourceImages.forEach((sourceImage, index) => {
+        const cloneImage = cloneImages[index];
+        const src = sourceImage.currentSrc || sourceImage.src;
+        if (!cloneImage || !src) return;
+
+        cloneImage.src = src;
+        cloneImage.setAttribute("src", src);
     });
 }
 
