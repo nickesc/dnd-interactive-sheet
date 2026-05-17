@@ -30,6 +30,11 @@
         object-fit: cover;
         border-radius: var(--corners);
         transition: opacity var(--transition-speed) ease-out;
+        z-index: 1;
+    }
+
+    img[src^="data:image/svg+xml"] {
+        z-index: -1;
     }
 
     .placeholder-text {
@@ -53,7 +58,7 @@
             opacity var(--transition-speed) ease-out,
             color var(--transition-speed) ease-out,
             background-color var(--transition-speed) ease-out;
-        z-index: -1;
+        z-index: 0;
     }
 }
 
