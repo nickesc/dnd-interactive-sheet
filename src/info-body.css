@@ -147,10 +147,14 @@
 
     #character-mind {
         .input-row-left-column .input-row label {
-            flex-basis: 12ch;
+            flex-basis: 12.5ch;
         }
         .input-row-right-column .input-row label {
             flex-basis: 8ch;
+        }
+
+        .range-input label {
+            flex: 0 0 11ch;
         }
     }
 
@@ -159,12 +163,6 @@
         .range-input label,
         .checkbox-input label {
             font-size: 16pt;
-        }
-    }
-
-    #character-mind {
-        .range-input label {
-            flex: 0 0 11ch;
         }
     }
 
