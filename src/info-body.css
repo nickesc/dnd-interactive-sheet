@@ -128,8 +128,7 @@
         }
 
         input[type="text"]::placeholder {
-            font-weight: bold;
-            opacity: 0;
+            display: none;
         }
 
         .input-row-left-column .input-row label {

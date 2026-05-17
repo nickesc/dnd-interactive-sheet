@@ -132,8 +132,12 @@ function syncFormControlState(source, clone) {
         if (sourceControl instanceof HTMLInputElement) {
             cloneControl.checked = sourceControl.checked;
             cloneControl.value = sourceControl.value;
+            cloneControl.placeholder = "";
+            cloneControl.removeAttribute("placeholder");
         } else if (sourceControl instanceof HTMLTextAreaElement) {
             cloneControl.value = sourceControl.value;
+            cloneControl.placeholder = "";
+            cloneControl.removeAttribute("placeholder");
         } else if (sourceControl instanceof HTMLSelectElement) {
             cloneControl.selectedIndex = sourceControl.selectedIndex;
         }
