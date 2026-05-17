@@ -103,8 +103,8 @@
                                    onchange="updateImage(event)" />
                         </div>
                         <div class="character-palette row" id="character-palette">
-                            <button class="clickable palette-button" id="remove-color-button"
-                                    type="button" onclick="removeColor()">
+                            <button class="clickable palette-button hide-on-export"
+                                    id="remove-color-button" type="button" onclick="removeColor()">
                                 <span class="minus-cross"></span>
                             </button>
                             <label class="character-palette-circle clickable">
@@ -132,8 +132,8 @@
                                        aria-label="Choose palette color"
                                        onchange="updatePaletteColor(event)" />
                             </label>
-                            <button class="clickable palette-button" id="add-color-button"
-                                    type="button" onclick="addColor()">
+                            <button class="clickable palette-button hide-on-export"
+                                    id="add-color-button" type="button" onclick="addColor()">
                                 <span class="plus-cross"></span>
                                 <span class="minus-cross"></span>
                             </button>

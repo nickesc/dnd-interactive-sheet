@@ -110,6 +110,7 @@ function createSnapdomExportElement(source, {contentWidth, sidePadding, topPaddi
     wrapper.style.backgroundColor = backgroundColor;
     wrapper.style.pointerEvents = "none";
     wrapper.style.container = "page / inline-size";
+    wrapper.setAttribute("data-exporting-image", "true");
 
     clone.style.width = `${contentWidth}px`;
     clone.style.maxWidth = `${contentWidth}px`;

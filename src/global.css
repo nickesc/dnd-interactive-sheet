@@ -46,6 +46,16 @@
     scrollbar-width: thin;
 }
 
+[data-exporting-image="true"] {
+    .hide-on-export {
+        visibility: hidden !important;
+    }
+
+    .placeholder-text {
+        color: transparent !important;
+    }
+}
+
 body {
     background-color: var(--background-color);
     color: var(--line-color);
