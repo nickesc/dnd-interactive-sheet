@@ -26,6 +26,9 @@
 
     --input-border-width: 2px;
     --input-border-style: var(--input-border-width) solid var(--line-color);
+    --input-border-radius: 3px;
+    --range-track-height: 3px;
+    --range-thumb-size: 20px;
 
     --mobile-gap: 10px;
     --desktop-gap: 15px;
@@ -175,9 +178,9 @@ body {
 
     input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
-        height: 20px;
-        width: 20px;
-        border-radius: 3px;
+        height: var(--range-thumb-size);
+        width: var(--range-thumb-size);
+        border-radius: var(--input-border-radius);
         background: var(--fill-color);
         border: var(--input-border-style);
         cursor: pointer;
@@ -187,9 +190,9 @@ body {
     }
 
     input[type="range"]::-moz-range-thumb {
-        height: 20px;
-        width: 20px;
-        border-radius: 3px;
+        height: var(--range-thumb-size);
+        width: var(--range-thumb-size);
+        border-radius: var(--input-border-radius);
         background: var(--fill-color);
         border: var(--input-border-style);
         cursor: pointer;
@@ -199,18 +202,18 @@ body {
 
     input[type="range"]::-webkit-slider-runnable-track {
         width: 100%;
-        height: 3px;
+        height: var(--range-track-height);
         cursor: pointer;
         background: var(--line-color);
-        border-radius: 10px;
+        border-radius: var(--corners);
     }
 
     input[type="range"]::-moz-range-track {
         width: 100%;
-        height: 3px;
+        height: var(--range-track-height);
         cursor: pointer;
         background: var(--line-color);
-        border-radius: 10px;
+        border-radius: var(--corners);
     }
 
     &.checkbox-input {
@@ -225,7 +228,7 @@ body {
         width: 30px;
         height: 30px;
         border: var(--input-border-style);
-        border-radius: 3px;
+        border-radius: var(--input-border-radius);
         cursor: pointer;
         transition: background-color var(--transition-fast) ease-in-out;
     }
@@ -294,6 +297,7 @@ button {
     body,
     main {
         --gap: var(--desktop-gap);
+        --range-thumb-size: 16px;
     }
 
     body {
@@ -331,14 +335,7 @@ button {
         }
 
         input[type="range"]::-webkit-slider-thumb {
-            height: 16px;
-            width: 16px;
             margin-top: -6px;
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            height: 16px;
-            width: 16px;
         }
 
         .special-label {
