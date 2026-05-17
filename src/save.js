@@ -1,4 +1,36 @@
-function saveToImage() {
+async function saveToImage() {
+    const el = document.querySelector("main");
+    const snap = getSnapdom();
+    if (!el || !snap) {
+        console.error("Save to image failed: SnapDOM is not loaded.");
+        return;
+    }
+
+    const contentWidth = 815;
+    const sidePadding = 24;
+    const topPadding = 18;
+    const exportScale = Math.max(4, window.devicePixelRatio || 1);
+    const bgColor = colorToRgb(getComputedStyle(document.body).backgroundColor) || "#ffffff";
+    const exportEl = createSnapdomExportElement(el, {
+        contentWidth,
+        sidePadding,
+        topPadding,
+        backgroundColor: bgColor,
+    });
+
+    try {
+        const result = await snap(exportEl, {
+            scale: exportScale,
+            dpr: 1,
+            backgroundColor: bgColor,
+        });
+        await result.download({format: "png", filename: "character.png"});
+    } catch (error) {
+        console.error("Save to image failed:", error);
+    } finally {
+        exportEl.remove();
+    }
+    /*
     const container = document.querySelector("main");
     if (!container || typeof html2canvas === "undefined") return;
     const contentWidth = 815;
@@ -51,73 +83,58 @@ function saveToImage() {
         .catch((error) => {
             console.error("Save to image failed:", error);
         });
+        */
 }
 
-function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
-    resolveColorMixVariables(clonedDocument);
+function getSnapdom() {
+    if (typeof window.snapdom === "function") return window.snapdom;
+    if (typeof window.snapdom?.snapdom === "function") return window.snapdom.snapdom;
+    return null;
+}
 
-    const clonedMain = clonedDocument.querySelector("main");
-    if (clonedMain) {
-        clonedMain.style.width = `${exportWidth}px`;
-        clonedMain.style.maxWidth = `${exportWidth}px`;
-        clonedMain.style.marginLeft = "auto";
-        clonedMain.style.marginRight = "auto";
-        clonedMain.style.paddingTop = "18px";
+function createSnapdomExportElement(source, {contentWidth, sidePadding, topPadding, backgroundColor}) {
+    const wrapper = document.createElement("div");
+    const clone = source.cloneNode(true);
+    const exportWidth = contentWidth + sidePadding * 2;
 
-        Array.from(clonedMain.children).forEach((child) => {
-            child.style.width = `${contentWidth}px`;
-            child.style.maxWidth = `${contentWidth}px`;
-        });
-    }
+    syncFormControlState(source, clone);
 
-    const prioritiesSplit = clonedDocument.querySelector("#character-priorities .input-row-split");
-    if (prioritiesSplit) {
-        prioritiesSplit.style.justifyContent = "space-between";
+    wrapper.style.position = "fixed";
+    wrapper.style.left = "-10000px";
+    wrapper.style.top = "0";
+    wrapper.style.boxSizing = "border-box";
+    wrapper.style.width = `${exportWidth}px`;
+    wrapper.style.padding = `${topPadding}px ${sidePadding}px 0`;
+    wrapper.style.backgroundColor = backgroundColor;
+    wrapper.style.pointerEvents = "none";
 
-        Array.from(prioritiesSplit.children).forEach((column) => {
-            if (!column.classList.contains("column")) return;
-            column.style.flex = "0 0 max-content";
-            column.style.width = "max-content";
-        });
+    clone.style.width = `${contentWidth}px`;
+    clone.style.maxWidth = `${contentWidth}px`;
+    clone.style.marginLeft = "auto";
+    clone.style.marginRight = "auto";
 
-        const rightColumn = prioritiesSplit.querySelector(".input-row-right-column");
-        if (rightColumn) {
-            const currentWidth =
-                rightColumn.getBoundingClientRect().width ||
-                parseFloat(clonedDocument.defaultView.getComputedStyle(rightColumn).width);
+    wrapper.append(clone);
+    document.body.append(wrapper);
+    return wrapper;
+}
 
-            if (Number.isFinite(currentWidth) && currentWidth > 0) {
-                const widenedWidth = `calc(${currentWidth}px + .5ch)`;
-                rightColumn.style.flex = `0 0 ${widenedWidth}`;
-                rightColumn.style.width = widenedWidth;
-            }
+function syncFormControlState(source, clone) {
+    const sourceControls = source.querySelectorAll("input, textarea, select");
+    const cloneControls = clone.querySelectorAll("input, textarea, select");
+
+    sourceControls.forEach((sourceControl, index) => {
+        const cloneControl = cloneControls[index];
+        if (!cloneControl) return;
+
+        if (sourceControl instanceof HTMLInputElement) {
+            cloneControl.checked = sourceControl.checked;
+            cloneControl.value = sourceControl.value;
+        } else if (sourceControl instanceof HTMLTextAreaElement) {
+            cloneControl.value = sourceControl.value;
+        } else if (sourceControl instanceof HTMLSelectElement) {
+            cloneControl.selectedIndex = sourceControl.selectedIndex;
         }
-    }
-    clonedDocument.querySelectorAll("#character-mind .input-row-left-column .input-row label").forEach((label) => {
-        label.style.flexBasis = "11.5ch";
     });
-    clonedDocument.querySelectorAll("#character-body .input-row-right-column .input-row label").forEach((label) => {
-        label.style.flexBasis = "6.5ch";
-    });
-    clonedDocument
-        .querySelectorAll("#character-priorities .input-row-left-column .input-row label")
-        .forEach((label) => {
-            label.style.flexBasis = "6ch";
-        });
-
-    clonedDocument.querySelectorAll("#remove-color-button, #add-color-button").forEach((el) => {
-        el.style.opacity = "0";
-        el.style.pointerEvents = "none";
-    });
-
-    clonedDocument.querySelectorAll(".placeholder-text").forEach((el) => {
-        el.style.color = "transparent";
-    });
-
-    clonedDocument.querySelectorAll('input[type="text"]').forEach(replaceTextInputForImage);
-    clonedDocument.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(replaceChoiceInputForImage);
-    clonedDocument.querySelectorAll('input[type="range"]').forEach(replaceRangeInputForImage);
-    clonedDocument.querySelectorAll(".image-container img").forEach(replaceImageForImage);
 }
 
 function resolveColorMixVariables(clonedDocument) {
@@ -188,6 +205,77 @@ function colorToRgb(colorStr) {
     if (a < 255) return `rgba(${r}, ${g}, ${b}, ${(a / 255).toFixed(3)})`;
     return `rgb(${r}, ${g}, ${b})`;
 }
+
+/*
+function prepareCloneForImage(clonedDocument, contentWidth, exportWidth) {
+    resolveColorMixVariables(clonedDocument);
+
+    const clonedMain = clonedDocument.querySelector("main");
+    if (clonedMain) {
+        clonedMain.style.width = `${exportWidth}px`;
+        clonedMain.style.maxWidth = `${exportWidth}px`;
+        clonedMain.style.marginLeft = "auto";
+        clonedMain.style.marginRight = "auto";
+        clonedMain.style.paddingTop = "18px";
+
+        Array.from(clonedMain.children).forEach((child) => {
+            child.style.width = `${contentWidth}px`;
+            child.style.maxWidth = `${contentWidth}px`;
+        });
+    }
+
+    const prioritiesSplit = clonedDocument.querySelector("#character-priorities .input-row-split");
+    if (prioritiesSplit) {
+        prioritiesSplit.style.justifyContent = "space-between";
+
+        Array.from(prioritiesSplit.children).forEach((column) => {
+            if (!column.classList.contains("column")) return;
+            column.style.flex = "0 0 max-content";
+            column.style.width = "max-content";
+        });
+
+        const rightColumn = prioritiesSplit.querySelector(".input-row-right-column");
+        if (rightColumn) {
+            const currentWidth =
+                rightColumn.getBoundingClientRect().width ||
+                parseFloat(clonedDocument.defaultView.getComputedStyle(rightColumn).width);
+
+            if (Number.isFinite(currentWidth) && currentWidth > 0) {
+                const widenedWidth = `calc(${currentWidth}px + .5ch)`;
+                rightColumn.style.flex = `0 0 ${widenedWidth}`;
+                rightColumn.style.width = widenedWidth;
+            }
+        }
+    }
+    clonedDocument.querySelectorAll("#character-mind .input-row-left-column .input-row label").forEach((label) => {
+        label.style.flexBasis = "11.5ch";
+    });
+    clonedDocument.querySelectorAll("#character-body .input-row-right-column .input-row label").forEach((label) => {
+        label.style.flexBasis = "6.5ch";
+    });
+    clonedDocument
+        .querySelectorAll("#character-priorities .input-row-left-column .input-row label")
+        .forEach((label) => {
+            label.style.flexBasis = "6ch";
+        });
+
+    clonedDocument.querySelectorAll("#remove-color-button, #add-color-button").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.pointerEvents = "none";
+    });
+
+    clonedDocument.querySelectorAll(".placeholder-text").forEach((el) => {
+        el.style.color = "transparent";
+    });
+
+    clonedDocument.querySelectorAll('input[type="text"]').forEach(replaceTextInputForImage);
+    clonedDocument.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(replaceChoiceInputForImage);
+    clonedDocument.querySelectorAll('input[type="range"]').forEach(replaceRangeInputForImage);
+    clonedDocument.querySelectorAll(".image-container img").forEach(replaceImageForImage);
+}
+
+
+
 
 function replaceImageForImage(img) {
     const container = img.closest(".image-container");
@@ -336,3 +424,5 @@ function replaceRangeInputForImage(input) {
 function getCssVariable(doc, name, fallback) {
     return doc.defaultView.getComputedStyle(doc.documentElement).getPropertyValue(name).trim() || fallback;
 }
+
+*/
