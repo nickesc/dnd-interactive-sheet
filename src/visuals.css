@@ -30,11 +30,6 @@
         object-fit: cover;
         border-radius: var(--corners);
         transition: opacity var(--transition-speed) ease-out;
-        z-index: 1;
-    }
-
-    img[src^="data:image/svg+xml"] {
-        z-index: -1;
     }
 
     .placeholder-text {
@@ -58,7 +53,7 @@
             opacity var(--transition-speed) ease-out,
             color var(--transition-speed) ease-out,
             background-color var(--transition-speed) ease-out;
-        z-index: 0;
+        z-index: -1;
     }
 }
 
@@ -154,7 +149,7 @@
     }
 }
 
-@container page (min-width: 768px) {
+@media (min-width: 768px) {
     #character-palette {
         .character-palette-circle {
             flex: 0 1 14cqw;

@@ -1,6 +1,4 @@
 :root {
-    container: page / inline-size;
-
     --start-color: #161616;
     --start-bg-color: #fff;
 
@@ -26,9 +24,6 @@
 
     --input-border-width: 2px;
     --input-border-style: var(--input-border-width) solid var(--line-color);
-    --input-border-radius: 3px;
-    --range-track-height: 3px;
-    --range-thumb-size: 20px;
 
     --mobile-gap: 10px;
     --desktop-gap: 15px;
@@ -47,20 +42,6 @@
         border-color var(--transition-slow) ease-in-out;
     scrollbar-color: var(--accent-color-dark) transparent;
     scrollbar-width: thin;
-}
-
-[data-exporting-image="true"] {
-    .hide-on-export {
-        visibility: hidden !important;
-    }
-
-    .placeholder-text {
-        color: transparent !important;
-    }
-}
-
-html {
-    background-color: var(--background-color);
 }
 
 body {
@@ -183,9 +164,9 @@ body {
 
     input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
-        height: var(--range-thumb-size);
-        width: var(--range-thumb-size);
-        border-radius: var(--input-border-radius);
+        height: 20px;
+        width: 20px;
+        border-radius: 3px;
         background: var(--fill-color);
         border: var(--input-border-style);
         cursor: pointer;
@@ -195,9 +176,9 @@ body {
     }
 
     input[type="range"]::-moz-range-thumb {
-        height: var(--range-thumb-size);
-        width: var(--range-thumb-size);
-        border-radius: var(--input-border-radius);
+        height: 20px;
+        width: 20px;
+        border-radius: 3px;
         background: var(--fill-color);
         border: var(--input-border-style);
         cursor: pointer;
@@ -207,18 +188,18 @@ body {
 
     input[type="range"]::-webkit-slider-runnable-track {
         width: 100%;
-        height: var(--range-track-height);
+        height: 3px;
         cursor: pointer;
         background: var(--line-color);
-        border-radius: var(--corners);
+        border-radius: 10px;
     }
 
     input[type="range"]::-moz-range-track {
         width: 100%;
-        height: var(--range-track-height);
+        height: 3px;
         cursor: pointer;
         background: var(--line-color);
-        border-radius: var(--corners);
+        border-radius: 10px;
     }
 
     &.checkbox-input {
@@ -233,7 +214,7 @@ body {
         width: 30px;
         height: 30px;
         border: var(--input-border-style);
-        border-radius: var(--input-border-radius);
+        border-radius: 3px;
         cursor: pointer;
         transition: background-color var(--transition-fast) ease-in-out;
     }
@@ -298,11 +279,9 @@ button {
     }
 }
 
-@container page (min-width: 768px) {
-    body,
-    main {
+@media (min-width: 768px) {
+    :root {
         --gap: var(--desktop-gap);
-        --range-thumb-size: 16px;
     }
 
     body {
@@ -329,18 +308,20 @@ button {
             }
         }
 
-        input[type="text"] {
-            line-height: 1;
-            padding: 0;
-        }
-
         input[type="checkbox"] {
             width: 16px;
             height: 16px;
         }
 
         input[type="range"]::-webkit-slider-thumb {
+            height: 16px;
+            width: 16px;
             margin-top: -6px;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            height: 16px;
+            width: 16px;
         }
 
         .special-label {

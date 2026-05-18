@@ -79,7 +79,7 @@
     }
 }
 
-@container page (min-width: 768px) {
+@media (min-width: 768px) {
     #info-body {
         flex: 1 1 0;
         width: auto;
@@ -128,6 +128,7 @@
         }
 
         input[type="text"]::placeholder {
+            font-weight: bold;
             opacity: 0;
         }
 
@@ -152,10 +153,6 @@
         .input-row-right-column .input-row label {
             flex-basis: 8ch;
         }
-
-        .range-input label {
-            flex: 0 0 11ch;
-        }
     }
 
     #character-mind,
@@ -163,6 +160,12 @@
         .range-input label,
         .checkbox-input label {
             font-size: 16pt;
+        }
+    }
+
+    #character-mind {
+        .range-input label {
+            flex: 0 0 11ch;
         }
     }
 

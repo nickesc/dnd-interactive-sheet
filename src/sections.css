@@ -42,7 +42,7 @@ main {
     }
 }
 
-@container page (min-width: 768px) {
+@media (min-width: 768px) {
     .container {
         padding: var(--gap);
         padding-top: max(calc(var(--gap) * 1.2), 20px);
